@@ -2,142 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://novohit.github.io/posts/papermod/papermod-installation/</loc>
+    <loc>https://novohit.top/posts/papermod/papermod-installation/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/posts/papermod/papermod-features/</loc>
+    <loc>https://novohit.top/posts/papermod/papermod-features/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/papermod/</loc>
+    <loc>https://novohit.top/tags/papermod/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/series/papermod/</loc>
+    <loc>https://novohit.top/series/papermod/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://novohit.github.io/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa"
-                href="https://novohit.github.io/fa/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://novohit.github.io/"
-                />
-  </url><url>
-    <loc>https://novohit.github.io/posts/papermod/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://novohit.github.io/posts/</loc>
+    <loc>https://novohit.top/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://novohit.github.io/fr/posts/"
+                href="https://novohit.top/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://novohit.github.io/fa/posts/"
+                href="https://novohit.top/fa/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://novohit.github.io/posts/"
+                href="https://novohit.top/"
                 />
   </url><url>
-    <loc>https://novohit.github.io/series/</loc>
+    <loc>https://novohit.top/posts/papermod/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/</loc>
+    <loc>https://novohit.top/posts/</loc>
+    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://novohit.top/fr/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa"
+                href="https://novohit.top/fa/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://novohit.top/posts/"
+                />
+  </url><url>
+    <loc>https://novohit.top/series/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/categories/</loc>
+    <loc>https://novohit.top/tags/</loc>
+    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/categories/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/css/</loc>
+    <loc>https://novohit.top/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/html/</loc>
+    <loc>https://novohit.top/tags/html/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/markdown/</loc>
+    <loc>https://novohit.top/tags/markdown/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/posts/markdown-syntax/</loc>
+    <loc>https://novohit.top/posts/markdown-syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://novohit.github.io/fr/posts/markdown-syntax/"
+                href="https://novohit.top/fr/posts/markdown-syntax/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://novohit.github.io/fa/posts/markdown-syntax/"
+                href="https://novohit.top/fa/posts/markdown-syntax/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://novohit.github.io/posts/markdown-syntax/"
+                href="https://novohit.top/posts/markdown-syntax/"
                 />
   </url><url>
-    <loc>https://novohit.github.io/categories/syntax/</loc>
+    <loc>https://novohit.top/categories/syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/themes/</loc>
+    <loc>https://novohit.top/tags/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/categories/themes/</loc>
+    <loc>https://novohit.top/categories/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/series/themes-guide/</loc>
+    <loc>https://novohit.top/series/themes-guide/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/posts/placeholder-text/</loc>
+    <loc>https://novohit.top/posts/placeholder-text/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/text/</loc>
+    <loc>https://novohit.top/tags/text/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/posts/math-typesetting/</loc>
+    <loc>https://novohit.top/posts/math-typesetting/</loc>
     <lastmod>2019-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/tags/emoji/</loc>
+    <loc>https://novohit.top/tags/emoji/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/posts/emoji-support/</loc>
+    <loc>https://novohit.top/posts/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://novohit.github.io/archives/</loc>
+    <loc>https://novohit.top/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://novohit.github.io/fr/archives/"
+                href="https://novohit.top/fr/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://novohit.github.io/archives/"
+                href="https://novohit.top/archives/"
                 />
   </url><url>
-    <loc>https://novohit.github.io/search/</loc>
+    <loc>https://novohit.top/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://novohit.github.io/fr/search/"
+                href="https://novohit.top/fr/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://novohit.github.io/search/"
+                href="https://novohit.top/search/"
                 />
   </url>
 </urlset>
