@@ -1,73 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on novo</title>
+    <title>Blog on novo</title>
     <link>https://novohit.top/posts/</link>
-    <description>Recent content in Posts on novo</description>
-    <image>
-      <title>novo</title>
-      <url>https://novohit.top/papermod-cover.png</url>
-      <link>https://novohit.top/papermod-cover.png</link>
-    </image>
+    <description>Recent content in Blog on novo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://novohit.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://novohit.top/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://novohit.top/posts/markdown-syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Creating a New Theme</title>
+      <link>https://novohit.top/posts/creating-a-new-theme/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/posts/markdown-syntax/</guid>
-      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+      <guid>https://novohit.top/posts/creating-a-new-theme/</guid>
+      <description>Introduction #  This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
-      <title>Placeholder Text</title>
-      <link>https://novohit.top/posts/placeholder-text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Migrate to Hugo from Jekyll</title>
+      <link>https://novohit.top/posts/migrate-from-jekyll/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/posts/placeholder-text/</guid>
-      <description>Lorem Ipsum Dolor Si Amet</description>
+      <guid>https://novohit.top/posts/migrate-from-jekyll/</guid>
+      <description>Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     
     <item>
-      <title>KMP</title>
-      <link>https://novohit.top/posts/kmp/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <title>(Hu)go Template Primer</title>
+      <link>https://novohit.top/posts/goisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/posts/kmp/</guid>
-      <description>基本概念：   非平凡前缀：包含首位字符但不包含末位字符的子串组合。
-  非平凡后缀：包含末位字符但不包含首位字符的子串组合。
-  next数组定义(又称部分匹配表)：模式串T j指针的变化(即当主串与模式串的某一位字符不匹配时，模式串要回退的位置)
-  next[j]的值：当前字符j之前(j-1位)的串的前后缀的相似度(重合字符数+1)
-  模式串求next数组 此教程面向的对象：
- 了解KMP算法原理，可以手写next数组 看过求next数组的代码，进行过相关思考  next[j]数组函数定义：
-看懂求next数组代码最重要的是理解下面两句话：
- next[j+1]的最大值为next[j]+1 如果$P_{k1}\neq P_{j}$ ,那么next[j+1]可能的最大值为next[next[j]]+1,以此类推即可高效求出next[j+1]。(重点)  ​	第一句话的意思是，我们已知next[j]的情况下，继续与下一位字符匹配，最理想的情况就是下一位字符匹配依然相等$P_{k1}$= $P_{j}$，next[j+1]=next[j]+1,相似度+1
-​	第二句话的意思是，我们已知**next[j]的情况下，继续与下一位字符匹配,匹配不相等（next[j]只是当前字符j之前的串的前后缀的相似度,然而决定回溯跨度**的是整个S串的前后缀的相似度），进行回溯，继续下一次匹配
-流程： ①求next[j+1],则已知next[1]、next[2]$\cdots$next[j]
-②假设next[j]=$k_1$,则有$P_1\cdots P_{k-1}$ = $P_{j-k+1}\cdots P_{j-1}$(前k1-1位字符与后k1-1位字符重合)
-③如果$P_{k1}$= $P_{j}$,则$P_1\cdots P_{k-1}P_{k1}$ = $P_{j-k+1}\cdots P_{j-1}P_{j}$,则next[j+1]=k1+1,否则进入下一步
-④假设next[k1]=k2,则有$P_1\cdots P_{k2-1}$ = $P_{k1-k2+1}\cdots P_{k1-1}$
-⑤第二第三步联合得到：$P_1\cdots P_{k2-1}$ = $P_{k1-k2+1}\cdots P_{k1-1}$ = $P_{j-k1+1}\cdots P_{k2-k1+j-1}$ = $P_{j-k2+1}\cdots P_{j-1}$ 即四段 重合
-⑥这时候，再判断如果$P_{k2}$ = $P_{j}$, 则$P_1\cdots P_{k2-1}P_{k2}$ = $P_{j-k2+1}\cdots P_{j-1}P_{j}$ ,则next[j+1]=k2+1;否则 再取next[k2]=k3…以此类推</description>
+      <guid>https://novohit.top/posts/goisforlovers/</guid>
+      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
+This document is a brief primer on using Go templates.</description>
     </item>
     
     <item>
-      <title>Math Typesetting</title>
-      <link>https://novohit.top/posts/math-typesetting/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Getting Started with Hugo</title>
+      <link>https://novohit.top/posts/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/posts/math-typesetting/</guid>
-      <description>A brief guide to setup KaTeX</description>
-    </item>
-    
-    <item>
-      <title>Emoji Support</title>
-      <link>https://novohit.top/posts/emoji-support/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/posts/emoji-support/</guid>
-      <description>Guide to emoji usage in Hugo</description>
+      <guid>https://novohit.top/posts/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo #  Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at Install Hugo
+Step 2. Build the Docs #  Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:</description>
     </item>
     
   </channel>

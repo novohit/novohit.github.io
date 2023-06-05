@@ -1,76 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on novo</title>
     <link>https://novohit.top/tags/</link>
     <description>Recent content in Tags on novo</description>
-    <image>
-      <title>novo</title>
-      <url>https://novohit.top/papermod-cover.png</url>
-      <link>https://novohit.top/papermod-cover.png</link>
-    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://novohit.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://novohit.top/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>PaperMod</title>
-      <link>https://novohit.top/tags/papermod/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
+      <title>development</title>
+      <link>https://novohit.top/tags/development/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/tags/papermod/</guid>
+      <guid>https://novohit.top/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>css</title>
-      <link>https://novohit.top/tags/css/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>go</title>
+      <link>https://novohit.top/tags/go/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/tags/css/</guid>
+      <guid>https://novohit.top/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>html</title>
-      <link>https://novohit.top/tags/html/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>golang</title>
+      <link>https://novohit.top/tags/golang/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/tags/html/</guid>
+      <guid>https://novohit.top/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>markdown</title>
-      <link>https://novohit.top/tags/markdown/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>hugo</title>
+      <link>https://novohit.top/tags/hugo/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/tags/markdown/</guid>
+      <guid>https://novohit.top/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templates</title>
+      <link>https://novohit.top/tags/templates/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://novohit.top/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
       <link>https://novohit.top/tags/themes/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>https://novohit.top/tags/themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>text</title>
-      <link>https://novohit.top/tags/text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/tags/text/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emoji</title>
-      <link>https://novohit.top/tags/emoji/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/tags/emoji/</guid>
       <description></description>
     </item>
     

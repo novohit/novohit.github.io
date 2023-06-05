@@ -1,25 +1,97 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <sitemap>
-    <loc>https://novohit.top/en/sitemap.xml</loc>
-    
-      <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://novohit.top/fr/sitemap.xml</loc>
-    
-      <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://novohit.top/fa/sitemap.xml</loc>
-    
-      <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    
-  </sitemap>
-  
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://novohit.top/docs/example/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/example/table-of-contents/with-toc/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/%E6%B5%8B%E8%AF%95/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/example/table-of-contents/without-toc/</loc>
+  </url><url>
+    <loc>https://novohit.top/posts/creating-a-new-theme/</loc>
+    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/posts/migrate-from-jekyll/</loc>
+    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/docs/example/table-of-contents/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/example/collapsed/</loc>
+  </url><url>
+    <loc>https://novohit.top/posts/</loc>
+    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/</loc>
+    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/posts/goisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/categories/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/categories/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/tags/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/posts/hugoisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/tags/go/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/tags/golang/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/categories/golang/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/tags/hugo/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/tags/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/tags/templates/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/tags/themes/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://novohit.top/docs/example/collapsed/3rd-level/4th-level/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/example/collapsed/3rd-level/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/example/hidden/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/buttons/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/columns/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/details/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/expand/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/hints/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/katex/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/mermaid/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/section/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/section/first-page/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/section/second-page/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/shortcodes/tabs/</loc>
+  </url><url>
+    <loc>https://novohit.top/docs/</loc>
+  </url>
+</urlset>
