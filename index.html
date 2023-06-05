@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>PaperMod</title>
+<title>novo</title>
 
 <meta name="description" content="Theme PaperMod - https://github.com/novohit/hugo-PaperMod">
 <meta name="author" content="Theme PaperMod">
@@ -60,7 +60,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="PaperMod" />
+</noscript><meta property="og:title" content="novo" />
 <meta property="og:description" content="Theme PaperMod - https://github.com/novohit/hugo-PaperMod" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://novohit.top/" /><meta property="og:image" content="https://novohit.top/papermod-cover.png"/>
@@ -68,14 +68,14 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://novohit.top/papermod-cover.png"/>
 
-<meta name="twitter:title" content="PaperMod"/>
+<meta name="twitter:title" content="novo"/>
 <meta name="twitter:description" content="Theme PaperMod - https://github.com/novohit/hugo-PaperMod"/>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "PaperMod",
+  "name": "novo",
   "url": "https://novohit.top/",
   "description": "Theme PaperMod - https://github.com/novohit/hugo-PaperMod",
   "thumbnailUrl": "https://novohit.top/favicon.ico",
@@ -101,7 +101,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://novohit.top/" accesskey="h" title="PaperMod (Alt + H)">PaperMod</a>
+            <a href="https://novohit.top/" accesskey="h" title="novo (Alt + H)">novo</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -163,7 +163,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://github.com/novohit/hugo-PaperMod/wiki/" title="WiKi">
+                <a href="https://github.com/novohit/" title="WiKi">
                     <span>WiKi</span>&nbsp;
                     <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
@@ -179,7 +179,7 @@
 <main class="main"> 
 <article class="first-entry home-info">
     <header class="entry-header">
-        <h1>PaperMod</h1>
+        <h1>novo</h1>
     </header>
     <div class="entry-content">
         <p>Welcome to demo of hugo&rsquo;s theme PaperMod.</p>
@@ -272,15 +272,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Math Typesetting
+    <h2>KMP
     </h2>
   </header>
   <div class="entry-content">
-    <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.
-...</p>
+    <p>基本概念：   非平凡前缀：包含首位字符但不包含末位字符的子串组合。
+  非平凡后缀：包含末位字符但不包含首位字符的子串组合。
+  next数组定义(又称部分匹配表)：模式串T j指针的变化(即当主串与模式串的某一位字符不匹配时，模式串要回退的位置)
+  next[j]的值：当前字符j之前(j-1位)的串的前后缀的相似度(重合字符数&#43;1)
+  模式串求next数组 此教程面向的对象：
+ 了解KMP算法原理，可以手写next数组 看过求next数组的代码，进行过相关思考  next[j]数组函数定义：
+看懂求next数组代码最重要的是理解下面两句话：
+ next[j&#43;1]的最大值为next[j]&#43;1 如果$P_{k1}\neq P_{j}$ ,那么next[j&#43;1]可能的最大值为next[next[j]]&#43;1,以此类推即可高效求出next[j&#43;1]。(重点)  ​	第一句话的意思是，我们已知next[j]的情况下，继续与下一位字符匹配，最理想的情况就是下一位字符匹配依然相等$P_{k1}$= $P_{j}$，next[j&#43;1]=next[j]&#43;1,相似度&#43;1
+​	第二句话的意思是，我们已知**next[j]的情况下，继续与下一位字符匹配,匹配不相等（next[j]只是当前字符j之前的串的前后缀的相似度,然而决定回溯跨度**的是整个S串的前后缀的相似度），进行回溯，继续下一次匹配
+流程： ①求next[j&#43;1],则已知next[1]、next[2]$\cdots$next[j]
+②假设next[j]=$k_1$,则有$P_1\cdots P_{k-1}$ = $P_{j-k&#43;1}\cdots P_{j-1}$(前k1-1位字符与后k1-1位字符重合)
+③如果$P_{k1}$= $P_{j}$,则$P_1\cdots P_{k-1}P_{k1}$ = $P_{j-k&#43;1}\cdots P_{j-1}P_{j}$,则next[j&#43;1]=k1&#43;1,否则进入下一步
+④假设next[k1]=k2,则有$P_1\cdots P_{k2-1}$ = $P_{k1-k2&#43;1}\cdots P_{k1-1}$
+⑤第二第三步联合得到：$P_1\cdots P_{k2-1}$ = $P_{k1-k2&#43;1}\cdots P_{k1-1}$ = $P_{j-k1&#43;1}\cdots P_{k2-k1&#43;j-1}$ = $P_{j-k2&#43;1}\cdots P_{j-1}$ 即四段 重合
+⑥这时候，再判断如果$P_{k2}$ = $P_{j}$, 则$P_1\cdots P_{k2-1}P_{k2}$ = $P_{j-k2&#43;1}\cdots P_{j-1}P_{j}$ ,则next[j&#43;1]=k2&#43;1;否则 再取next[k2]=k3…以此类推...</p>
   </div>
-  <footer class="entry-footer"><span title='2019-03-08 00:00:00 +0000 UTC'>March 8, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Hugo Authors</footer>
-  <a class="entry-link" aria-label="post link to Math Typesetting" href="https://novohit.top/posts/math-typesetting/"></a>
+  <footer class="entry-footer"><span title='2019-03-08 00:00:00 +0000 UTC'>March 8, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Hugo Authors</footer>
+  <a class="entry-link" aria-label="post link to KMP" href="https://novohit.top/posts/kmp/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -291,7 +304,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://novohit.top/">PaperMod</a></span>
+    <span>&copy; 2023 <a href="https://novohit.top/">novo</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
