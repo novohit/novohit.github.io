@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="在一次读取题目的输入样例时，发现使用 Scanner 的 readLine() 方法读取到的数据为空。
+原因是我在读取第一行数据的时候使用的是 readInt() 读取两个数字，而下面的 01矩阵使用是 readLine() 读取。
+那么为什么会出现读取为空的现象呢？
+3 4000100110110 Scanner 读取方式的区别 #  先来弄清楚 Scanner 常用几种读取方式的区别：
+next()：会自动消去有效字符前的空格，只返回输入的字符。遇到有效字符后的空格就停止，所以读取输入后光标定在同一行。
+nextInt()/nextDouble()/nextFloat()：跟 next() 方法是一样的，只不过读取后会自动转换成相应的数据类型。
+nextLine()：按行读取，可以读到空格，以回车结束(即读取到换行\n的末尾)。读取输入后，光标定位在下一行。
+Scanner read = new Scanner(System.in);  System.out.print(&#34;输入:&#34;); String str1 = read.nextLine(); System.out.println(&#34;输出:&#34;&#43; str1);  System.out.print(&#34;输入:&#34;); String str2 = read.next(); System.out.println(&#34;输出:&#34;&#43; str2);  System.out.print(&#34;输入:&#34;); int n = read.nextInt(); System.out.println(&#34;输出:&#34;&#43; n); 控制台输出效果：
+ 我们再将 nextLine() 读取放到 next() 后：
+发现 nextLine() 没有读取任何输入直接输出了。
+ 其实原因上面也已经说了，如果在 nextLine() 之前用的是 next()/nextInt().">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="在一次读取题目的输入样例时，发现使用 Scanner 的 readLine() 方法读取到的数据为空。
+原因是我在读取第一行数据的时候使用的是 readInt() 读取两个数字，而下面的 01矩阵使用是 readLine() 读取。
+那么为什么会出现读取为空的现象呢？
+3 4000100110110 Scanner 读取方式的区别 #  先来弄清楚 Scanner 常用几种读取方式的区别：
+next()：会自动消去有效字符前的空格，只返回输入的字符。遇到有效字符后的空格就停止，所以读取输入后光标定在同一行。
+nextInt()/nextDouble()/nextFloat()：跟 next() 方法是一样的，只不过读取后会自动转换成相应的数据类型。
+nextLine()：按行读取，可以读到空格，以回车结束(即读取到换行\n的末尾)。读取输入后，光标定位在下一行。
+Scanner read = new Scanner(System.in);  System.out.print(&#34;输入:&#34;); String str1 = read.nextLine(); System.out.println(&#34;输出:&#34;&#43; str1);  System.out.print(&#34;输入:&#34;); String str2 = read.next(); System.out.println(&#34;输出:&#34;&#43; str2);  System.out.print(&#34;输入:&#34;); int n = read.nextInt(); System.out.println(&#34;输出:&#34;&#43; n); 控制台输出效果：
+ 我们再将 nextLine() 读取放到 next() 后：
+发现 nextLine() 没有读取任何输入直接输出了。
+ 其实原因上面也已经说了，如果在 nextLine() 之前用的是 next()/nextInt()." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://novohit.top/posts/java/scanner%E7%9A%84nextline%E8%AF%BB%E5%8F%96%E4%B8%BA%E7%A9%BA/" /><meta property="article:section" content="posts" />
+
+
+
+<title>Scanner的next Line()读取为空 | novo</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.4b8bb577b03f87835f5916366e28d99e5abb3d0de489975f101c748ccf237efe.js" integrity="sha256-S4u1d7A/h4NfWRY2bijZnlq7PQ3kiZdfEBx0jM8jfv4=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>novo</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        博客
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/novohit"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Scanner的next Line()读取为空</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#scanner-读取方式的区别">Scanner 读取方式的区别</a></li>
+        <li><a href="#解决方法">解决方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/java/scanner%E7%9A%84nextline%E8%AF%BB%E5%8F%96%E4%B8%BA%E7%A9%BA/">Scanner的next Line()读取为空</a>
+  </h1>
+  
+
+
+  
+
+  
+
+
+
+<p>在一次读取题目的输入样例时，发现使用 <code>Scanner</code> 的 <code>readLine()</code> 方法读取到的数据为空。</p>
+<p>原因是我在读取第一行数据的时候使用的是 <code>readInt()</code> 读取两个数字，而下面的 01矩阵使用是 <code>readLine()</code> 读取。</p>
+<p>那么为什么会出现读取为空的现象呢？</p>
+<pre tabindex="0"><code>3 4
+0001
+0011
+0110
+</code></pre><h3 id="scanner-读取方式的区别">
+  Scanner 读取方式的区别
+  <a class="anchor" href="#scanner-%e8%af%bb%e5%8f%96%e6%96%b9%e5%bc%8f%e7%9a%84%e5%8c%ba%e5%88%ab">#</a>
+</h3>
+<p>先来弄清楚 Scanner 常用几种读取方式的区别：</p>
+<p><code>next()</code>：会自动消去有效字符前的空格，只返回输入的字符。遇到有效字符后的空格就停止，所以读取输入后<strong>光标定在同一行</strong>。</p>
+<p><code>nextInt()/nextDouble()/nextFloat()</code>：跟 <code>next()</code> 方法是一样的，只不过读取后会自动转换成相应的数据类型。</p>
+<p><code>nextLine()</code>：按行读取，可以读到空格，以回车结束(即读取到换行\n的末尾)。读取输入后，<strong>光标定位在下一行</strong>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Scanner read <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输入:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>String str1 <span style="color:#f92672">=</span> read<span style="color:#f92672">.</span><span style="color:#a6e22e">nextLine</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输出:&#34;</span><span style="color:#f92672">+</span> str1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输入:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>String str2 <span style="color:#f92672">=</span> read<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输出:&#34;</span><span style="color:#f92672">+</span> str2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输入:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> read<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输出:&#34;</span><span style="color:#f92672">+</span> n<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>控制台输出效果：</p>
+<p>
+  <img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20220719135714141.png" alt="image-20220719135714141" /></p>
+<p>我们再将 <code>nextLine()</code> 读取放到  <code>next()</code> 后：</p>
+<p>发现 <code>nextLine()</code> 没有读取任何输入直接输出了。</p>
+<p>
+  <img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20220719140218485.png" alt="image-20220719140218485" /></p>
+<p>其实原因上面也已经说了，如果在 <code>nextLine()</code> 之前用的是 <code>next()/nextInt()...</code> 方法读取，那么读取完后光标其实是定位在同一行行尾的，也就是换行符并没有被读取，如果这时在调用 <code>nextLine()</code> 方法读取，它读取到的就仅仅是一个换行符，而没有其他数据。</p>
+<h3 id="解决方法">
+  解决方法
+  <a class="anchor" href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95">#</a>
+</h3>
+<p>1、在使用 <code>nextLine()</code> 读取想要的数据前先调用一次 <code>nextLine()</code> ，这样留在缓冲区的换行符就会被处理掉，这时第二个 <code>nextLine()</code> 就可以正常读取到数据。</p>
+<p>2、避免在 <code>nextLine()</code> 之前调用 <code>nextInt()</code> 等方法，可以统一使用 <code>nextLine()</code> 来读取数据，之后再进行类型转换。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/posts/java/Scanner%e7%9a%84nextLine%28%29%e8%af%bb%e5%8f%96%e4%b8%ba%e7%a9%ba.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#scanner-读取方式的区别">Scanner 读取方式的区别</a></li>
+        <li><a href="#解决方法">解决方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="个人理解这个问题需要分两种情况讨论
+ multi开启事务后命令队列语法有错误或取消事务discard multi开启事务后命令队列运行错误  第一种情况 #   可以看到开启事务后输入一个错误语法命令get name zhangsan后立即显示错误提示了，再执行exec自然也是不行的，所有命令都不会执行。
+discard的情况就不用说了，取消事务。
+这种情况下是满足事务的原子性的，要不所有命令执行成功，要不一个命令都不执行。
+第二种情况 #  开启事务后命令语法正确，但是在命令执行期间出错，如输入参数的数据类型不符合命令的参数要求。
+ set name后用了list的指令，可以看到命令执行后，能够正确运行的命令会执行，运行错误的命令不会被执行。这种情况下Redis 事务其实不满足原子性的，也就是Redis 不支持事务回滚机制，运行错误需要手动回滚(应该避免)。
+为什么Redis不支持回滚 #  官方文档说明：
+ ">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="个人理解这个问题需要分两种情况讨论
+ multi开启事务后命令队列语法有错误或取消事务discard multi开启事务后命令队列运行错误  第一种情况 #   可以看到开启事务后输入一个错误语法命令get name zhangsan后立即显示错误提示了，再执行exec自然也是不行的，所有命令都不会执行。
+discard的情况就不用说了，取消事务。
+这种情况下是满足事务的原子性的，要不所有命令执行成功，要不一个命令都不执行。
+第二种情况 #  开启事务后命令语法正确，但是在命令执行期间出错，如输入参数的数据类型不符合命令的参数要求。
+ set name后用了list的指令，可以看到命令执行后，能够正确运行的命令会执行，运行错误的命令不会被执行。这种情况下Redis 事务其实不满足原子性的，也就是Redis 不支持事务回滚机制，运行错误需要手动回滚(应该避免)。
+为什么Redis不支持回滚 #  官方文档说明：
+ " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://novohit.top/posts/redis/%E5%85%B3%E4%BA%8Eredis%E4%BA%8B%E5%8A%A1%E6%98%AF%E5%90%A6%E6%BB%A1%E8%B6%B3%E5%8E%9F%E5%AD%90%E6%80%A7/" /><meta property="article:section" content="posts" />
+
+
+
+<title>关于 Redis事务是否满足原子性 | novo</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.4b8bb577b03f87835f5916366e28d99e5abb3d0de489975f101c748ccf237efe.js" integrity="sha256-S4u1d7A/h4NfWRY2bijZnlq7PQ3kiZdfEBx0jM8jfv4=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>novo</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        博客
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/novohit"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>关于 Redis事务是否满足原子性</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/redis/%E5%85%B3%E4%BA%8Eredis%E4%BA%8B%E5%8A%A1%E6%98%AF%E5%90%A6%E6%BB%A1%E8%B6%B3%E5%8E%9F%E5%AD%90%E6%80%A7/">关于 Redis事务是否满足原子性</a>
+  </h1>
+  
+
+
+  
+
+  
+
+
+
+<p>个人理解这个问题需要分两种情况讨论</p>
+<ul>
+<li><code>multi</code>开启事务后命令队列语法有错误或取消事务<code>discard</code></li>
+<li><code>multi</code>开启事务后命令队列运行错误</li>
+</ul>
+<h1 id="第一种情况">
+  第一种情况
+  <a class="anchor" href="#%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%83%85%e5%86%b5">#</a>
+</h1>
+<p>
+  <img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20220103104538048.png" alt="" /></p>
+<p>可以看到开启事务后输入一个错误语法命令<code>get name zhangsan</code>后立即显示错误提示了，再执行<code>exec</code>自然也是不行的，所有命令都不会执行。</p>
+<p><code>discard</code>的情况就不用说了，取消事务。</p>
+<p><strong>这种情况下是满足事务的原子性的</strong>，要不所有命令执行成功，要不一个命令都不执行。</p>
+<h1 id="第二种情况">
+  第二种情况
+  <a class="anchor" href="#%e7%ac%ac%e4%ba%8c%e7%a7%8d%e6%83%85%e5%86%b5">#</a>
+</h1>
+<p>开启事务后命令语法正确，但是在命令执行期间出错，如输入参数的数据类型不符合命令的参数要求。</p>
+<p>
+  <img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20220103105843086.png" alt="" /></p>
+<p>set name后用了list的指令，可以看到命令执行后，能够正确运行的命令会执行，运行错误的命令不会被执行。<strong>这种情况下Redis 事务其实不满足原子性的</strong>，也就是Redis 不支持事务回滚机制，运行错误需要手动回滚(应该避免)。</p>
+<h1 id="为什么redis不支持回滚">
+  为什么Redis不支持回滚
+  <a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88redis%e4%b8%8d%e6%94%af%e6%8c%81%e5%9b%9e%e6%bb%9a">#</a>
+</h1>
+<p>官方文档说明：</p>
+<p>
+  <img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20220103112057004.png" alt="" /></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/posts/redis/%e5%85%b3%e4%ba%8eRedis%e4%ba%8b%e5%8a%a1%e6%98%af%e5%90%a6%e6%bb%a1%e8%b6%b3%e5%8e%9f%e5%ad%90%e6%80%a7.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

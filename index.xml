@@ -5,194 +5,240 @@
     <link>https://novohit.top/</link>
     <description>Recent content in Introduction on novo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://novohit.top/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://novohit.top/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>With ToC</title>
-      <link>https://novohit.top/docs/example/table-of-contents/with-toc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>引用拷贝</title>
+      <link>https://novohit.top/posts/java/%E5%BC%95%E7%94%A8%E6%8B%B7%E8%B4%9D-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</link>
+      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/example/table-of-contents/with-toc/</guid>
-      <description>Caput vino delphine in tamen vias #  Cognita laeva illo fracta #  Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
- Te at cruciabere vides rubentis manebo Maturuit in praetemptat ruborem ignara postquam habitasse Subitarum supplevit quoque fontesque venabula spretis modo Montis tot est mali quasque gravis Quinquennem domus arsit ipse Pellem turis pugnabant locavit  Natus quaerere #  Pectora et sine mulcere, coniuge dum tincta incurvae.</description>
-    </item>
-    
-    <item>
-      <title>Without ToC</title>
-      <link>https://novohit.top/docs/example/table-of-contents/without-toc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/docs/example/table-of-contents/without-toc/</guid>
-      <description>At me ipso nepotibus nunc celebratior genus #  Tanto oblite #  Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat admonitu concidit, ad resimas vultus et rugas vultu dignamque Siphnon.
-Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt dixit: ritu pharetramque.</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>https://novohit.top/posts/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/posts/creating-a-new-theme/</guid>
-      <description>Introduction #  This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>https://novohit.top/posts/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/posts/migrate-from-jekyll/</guid>
-      <description>Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>https://novohit.top/posts/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/posts/goisforlovers/</guid>
-      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>https://novohit.top/posts/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://novohit.top/posts/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo #  Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs #  Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:</description>
+      <guid>https://novohit.top/posts/java/%E5%BC%95%E7%94%A8%E6%8B%B7%E8%B4%9D-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</guid>
+      <description>引用拷贝：引用拷贝，就是拷贝引用地址。两个不同的引用指向同一个对象。
+  浅拷贝：浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点）
+  如果属性是基本类型(int,double,long,boolean等)，拷贝的就是基本类型的值
+  如果属性是引用类型，拷贝的就是内存地址（即复制引用但不复制引用的对象）
+ 注：String类型通过常量赋值时相当于基本数据类型，由于String为不可变对象，是无法修改原String的状态的，其会生成一个新的String对象
+     深拷贝 ：深拷贝会完全复制整个对象，包括这个对象所包含的内部对象。
+  图示：
+   案例：
+实现浅拷贝
+ 在需要拷贝的类上实现 Cloneable 接口，并重写 clone() 方法。实现很简单，直接调用的是父类 Object 的 clone() 方法。 使用的时候调用实现类的clone方法  public class Address implements Cloneable{  private final String name;  // 省略构造函数、Getter&amp;amp;Setter方法  @Override  public Address clone() {  try {  return (Address) super.clone();  } catch (CloneNotSupportedException e) {  throw new AssertionError();  }  } }  public class Person implements Cloneable {  private Address address;  // 省略构造函数、Getter&amp;amp;Setter方法  @Override  public Person clone() {  try {  Person person = (Person) super.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/example/collapsed/3rd-level/4th-level/</link>
+      <link>https://novohit.top/posts/algorithm/leetcode/leetcode142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8ii/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/example/collapsed/3rd-level/4th-level/</guid>
-      <description>4th Level of Menu #  Caesorum illa tu sentit micat vestes papyriferi #  Inde aderam facti; Theseus vis de tauri illa peream. Oculos uberaque non regisque vobis cursuque, opus venit quam vulnera. Et maiora necemque, lege modo; gestanda nitidi, vero? Dum ne pectoraque testantur.
-Venasque repulsa Samos qui, exspectatum eram animosque hinc, aut manes, Assyrii. Cupiens auctoribus pariter rubet, profana magni super nocens. Vos ius sibilat inpar turba visae iusto!</description>
+      <guid>https://novohit.top/posts/algorithm/leetcode/leetcode142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8ii/</guid>
+      <description>142. 环形链表 II #  给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
+不允许修改 链表。
+示例 1：
+ 输入：head = [3,2,0,-4], pos = 1输出：返回索引为 1 的链表节点解释：链表中有一个环，其尾部连接到第二个节点。 示例 2：
+ 输入：head = [1,2], pos = 0输出：返回索引为 0 的链表节点解释：链表中有一个环，其尾部连接到第一个节点。 示例 3：
+ 输入：head = [1], pos = -1输出：返回 null解释：链表中没有环。 提示：
+ 链表中节点的数目范围在范围 [0, 104] 内 -105 &amp;lt;= Node.val &amp;lt;= 105 pos 的值为 -1 或者链表中的一个有效索引  **进阶：**你是否可以使用 O(1) 空间解决此题？</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/example/hidden/</link>
+      <link>https://novohit.top/posts/algorithm/leetcode/leetcode148.%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/example/hidden/</guid>
-      <description>This page is hidden in menu #  Quondam non pater est dignior ille Eurotas #  Latent te facies #  Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
- Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona #  O fallor in sustinui iussorum equidem.</description>
+      <guid>https://novohit.top/posts/algorithm/leetcode/leetcode148.%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/</guid>
+      <description>148. 排序链表 #  给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
+示例 1：
+ 输入：head = [4,2,1,3]输出：[1,2,3,4] 示例 2：
+ 输入：head = [-1,5,3,4,0]输出：[-1,0,3,4,5] 示例 3：
+输入：head = []输出：[] 提示：
+ 链表中节点的数目在范围 [0, 5 * 10 ^ 4] 内 -105 &amp;lt;= Node.val &amp;lt;= 105  进阶：你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？
+题解 #  时间复杂度要求 O(n log n) 的话，只能是快速排序、归并排序和堆排序，而且要求时间复杂度要求 O(1)
+ 数组的堆排空间复杂度是可以达到O(1)的
+ 只能是快排和归并，并且是迭代法(自底向上)，因为递归的话也会占用O(log N)的系统栈空间
+这里选用递归的归并排序，迭代版的下次再补坑
+链表可以通过修改引用来更改节点顺序，merge过程无需像数组一样开辟额外空间；
+大体过程和数组归并差不多
+1、找中点分割</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/buttons/</link>
+      <link>https://novohit.top/posts/algorithm/leetcode/leetcode160.%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/buttons/</guid>
-      <description>Buttons #  Buttons are styled links that can lead to local page or external link.
-Example #  {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
+      <guid>https://novohit.top/posts/algorithm/leetcode/leetcode160.%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/</guid>
+      <description>160. 相交链表 #  给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。
+图示两个链表在节点 c1 开始相交**：**
+ 题目数据 保证 整个链式结构中不存在环。
+注意，函数返回结果后，链表必须 保持其原始结构 。
+题解 #  注意：题目说的相交是指引用值相等，而不是val值相等
+使用哈希表肯定是能解的，但是空间复杂度不够好。所以不用哈希表，下面两个双指针解法的本质都是通过消除长度差，以同等的路程，两个指针同时开始遍历，两个链表如果相交，两个指针必然会相遇（相遇两指针相等）且不为null，为null说明不相交。
+双指针通俗易懂解法 #  public ListNode getIntersectionNode(ListNode headA, ListNode headB) {  // 这里判空可以不写  if (headA == null || headB == null) {  return null;  }  int lenA = 0;  int lenB = 0;  ListNode curA = headA;  ListNode curB = headB;  while (curA !</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/columns/</link>
+      <link>https://novohit.top/posts/algorithm/%E5%9B%9E%E6%BA%AF%E6%97%B6%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/columns/</guid>
-      <description>Columns #  Columns help organize shorter pieces of content horizontally for readability.
-{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne...  &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt;  # Mid Content Lorem markdownum insigne...  &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt;  # Right Content Lorem markdownum insigne... {{&amp;lt; /columns &amp;gt;}} Example #  Left Content #  Lorem markdownum insigne. Olympo signis Delphis!</description>
+      <guid>https://novohit.top/posts/algorithm/%E5%9B%9E%E6%BA%AF%E6%97%B6%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/</guid>
+      <description>回溯时的可变参数问题
+到底什么时候传index什么时候传path
+其实传index和path的目的都是一样的
+出现错误是对Java的参数传递了解不够深
+path定义在全局变量
+当参数没有传path的时候
+private List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); private List&amp;lt;Integer&amp;gt; path = new ArrayList&amp;lt;&amp;gt;();  public void backTracking(int[] nums, int index) {  if (path.size() == nums.length) {  /* 这里拿的是全局变量path的直接引用，一但退出backTracking函数，res装的是直接引用，最后一个path就会被清空，导致答案不正确 */  path = new ArrayList&amp;lt;&amp;gt;(path);  res.add(path);  System.out.println(&amp;#34;backTracking函数中的path&amp;#34; + path);  return;  } 	// 省略无关代码 } 正确代码：
+private List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); private List&amp;lt;Integer&amp;gt; path = new ArrayList&amp;lt;&amp;gt;();  public void backTracking(int[] nums, int index) {  if (path.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/details/</link>
+      <link>https://novohit.top/posts/java/java%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/details/</guid>
-      <description>Details #  Details shortcode is a helper for details html5 element. It is going to replace expand shortcode.
-Example #  {{&amp;lt; details &amp;#34;Title&amp;#34; [open] &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /details &amp;gt;}} {{&amp;lt; details title=&amp;#34;Title&amp;#34; open=true &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /details &amp;gt;}} Title Markdown content #  Lorem markdownum insigne&amp;hellip;   </description>
+      <guid>https://novohit.top/posts/java/java%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</guid>
+      <description>概述 #  Java 提供了一种对象序列化的机制。用一个字节序列可以表示一个对象，该字节序列包含该对象的数据、对象的类型和对象中存储的属性等信息。字节序列写出到文件之后，相当于文件中持久保存了一个对象的信息。
+反之，该字节序列还可以从文件中读取回来，重构对象，对它进行反序列化。对象的数据、对象的类型和对象中存储的数据信息，都可以用来在内存中创建对象。
+简单来说：
+ 序列化： 将数据结构或对象转换成二进制字节流的过程 反序列化：将在序列化过程中所生成的二进制字节流转换成数据结构或者对象的过程  对于 Java 这种面向对象编程语言来说，我们序列化的都是对象（Object）也就是实例化后的类(Class)，但是在 C++这种半面向对象的语言中，struct(结构体)定义的是数据结构类型，而 class 对应的是对象类型。
+维基百科：
+ 序列化（serialization）在计算机科学的数据处理中，是指将数据结构或对象状态转换成可取用格式（例如存成文件，存于缓冲，或经由网络中发送），以留待后续在相同或另一台计算机环境中，能恢复原先状态的过程。依照序列化格式重新获取字节的结果时，可以利用它来产生与原始对象相同语义的副本。对于许多对象，像是使用大量引用的复杂对象，这种序列化重建的过程并不容易。面向对象中的对象序列化，并不概括之前原始对象所关系的函数。这种过程也称为对象编组（marshalling）。从一系列字节提取数据结构的反向操作，是反序列化（也称为解编组、deserialization、unmarshalling）。
+ 综上：序列化的主要目的是通过网络传输对象或者说是将对象存储到文件系统、数据库、内存中。
+  ObjectOutputStream类 #  java.io.ObjectOutputStream 类，将Java对象的原始数据类型写出到文件,实现对象的持久存储。
+构造方法 #   public ObjectOutputStream(OutputStream out)： 创建一个指定OutputStream的ObjectOutputStream。  构造举例，代码如下：
+FileOutputStream fileOut = new FileOutputStream(&amp;#34;employee.txt&amp;#34;); ObjectOutputStream out = new ObjectOutputStream(fileOut); 序列化操作 #   一个对象要想序列化，必须满足两个条件:    该类必须实现java.io.Serializable 接口，Serializable 是一个标记接口，不实现此接口的类将不会使任何状态序列化或反序列化，会抛出NotSerializableException 。
+  该类的所有属性必须是可序列化的。如果有一个属性不需要可序列化的，则该属性必须注明是瞬态的，使用transient 关键字修饰。
+  被static修饰的属性也不会被序列化(因为static属性不属于对象)
+ 注意：</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/expand/</link>
+      <link>https://novohit.top/posts/java/scanner%E7%9A%84nextline%E8%AF%BB%E5%8F%96%E4%B8%BA%E7%A9%BA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/expand/</guid>
-      <description>Expand #  Expand shortcode can help to decrease clutter on screen by hiding part of text. Expand content by clicking on it.
-Example #  Default #  {{&amp;lt; expand &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}   Expand ↕  Markdown content #  Lorem markdownum insigne&amp;hellip;    With Custom Label #  {{&amp;lt; expand &amp;#34;Custom Label&amp;#34; &amp;#34;...&amp;#34; &amp;gt;}} ## Markdown content Lorem markdownum insigne.</description>
+      <guid>https://novohit.top/posts/java/scanner%E7%9A%84nextline%E8%AF%BB%E5%8F%96%E4%B8%BA%E7%A9%BA/</guid>
+      <description>在一次读取题目的输入样例时，发现使用 Scanner 的 readLine() 方法读取到的数据为空。
+原因是我在读取第一行数据的时候使用的是 readInt() 读取两个数字，而下面的 01矩阵使用是 readLine() 读取。
+那么为什么会出现读取为空的现象呢？
+3 4000100110110 Scanner 读取方式的区别 #  先来弄清楚 Scanner 常用几种读取方式的区别：
+next()：会自动消去有效字符前的空格，只返回输入的字符。遇到有效字符后的空格就停止，所以读取输入后光标定在同一行。
+nextInt()/nextDouble()/nextFloat()：跟 next() 方法是一样的，只不过读取后会自动转换成相应的数据类型。
+nextLine()：按行读取，可以读到空格，以回车结束(即读取到换行\n的末尾)。读取输入后，光标定位在下一行。
+Scanner read = new Scanner(System.in);  System.out.print(&amp;#34;输入:&amp;#34;); String str1 = read.nextLine(); System.out.println(&amp;#34;输出:&amp;#34;+ str1);  System.out.print(&amp;#34;输入:&amp;#34;); String str2 = read.next(); System.out.println(&amp;#34;输出:&amp;#34;+ str2);  System.out.print(&amp;#34;输入:&amp;#34;); int n = read.nextInt(); System.out.println(&amp;#34;输出:&amp;#34;+ n); 控制台输出效果：
+ 我们再将 nextLine() 读取放到 next() 后：
+发现 nextLine() 没有读取任何输入直接输出了。
+ 其实原因上面也已经说了，如果在 nextLine() 之前用的是 next()/nextInt().</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/hints/</link>
+      <link>https://novohit.top/posts/java/string-stringbuffer-%E5%92%8C-stringbuilder-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88-string-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/hints/</guid>
-      <description>Hints #  Hint shortcode can be used as hint/alerts/notification block.
-There are 3 colors to choose: info, warning and danger.
-{{&amp;lt; hint [info|warning|danger] &amp;gt;}} **Markdown content** Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa {{&amp;lt; /hint &amp;gt;}} Example #  Markdown content
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa  Markdown content</description>
+      <guid>https://novohit.top/posts/java/string-stringbuffer-%E5%92%8C-stringbuilder-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88-string-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84/</guid>
+      <description>可变性
+简单的来说：String 类中使用 final 关键字修饰字符数组来保存字符串，所以String 对象是不可变的。
+public final class String implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence {  private final char value[]; 	//... }  🐛 修正 ： 我们知道被 final 关键字修饰的类不能被继承，修饰的方法不能被重写，修饰的变量是基本数据类型则值不能改变，修饰的变量是引用类型则不能再指向其他对象。因此，final 关键字修饰的数组保存字符串并不是 String 不可变的根本原因，因为这个数组保存的字符串是可变的（final 修饰引用类型变量的情况）。
+String 真正不可变有下面几点原因：
+ 保存字符串的数组被 final 修饰且为私有的，并且String 类没有提供/暴露修改这个字符串的方法。 String 类被 final 修饰导致其不能被继承，进而避免了子类破坏 String 不可变。  相关阅读： 如何理解 String 类型值的不可变？ - 知乎提问 (opens new window)
+补充（来自 issue 675 (opens new window)）：在 Java 9 之后，String 、StringBuilder 与 StringBuffer 的实现改用 byte 数组存储字符串 private final byte[] value</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/katex/</link>
+      <link>https://novohit.top/posts/java/%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6-val--2--val--1-%E7%9A%84%E6%83%85%E5%86%B5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/katex/</guid>
-      <description>KaTeX #  KaTeX shortcode let you render math typesetting in markdown document. See KaTeX
-Example #  {{&amp;lt;/* katex [display] [class=&amp;#34;text-center&amp;#34;] */&amp;gt;}} f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi {{&amp;lt;/* /katex */&amp;gt;}}     Display Mode Example #  Here is some inline example:  \(\pi(x)\)  , rendered in the same line. And below is display example, having display: block  \[f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi\]  Text continues here.</description>
+      <guid>https://novohit.top/posts/java/%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6-val--2--val--1-%E7%9A%84%E6%83%85%E5%86%B5/</guid>
+      <description>在写堆排序用移位运算的时候发现执行报了个数组索引越界
+ 打印了下才发现 -1 &amp;raquo; 1 并不等于0而是等于1
+ 原码 补码 右移一位 结果（原码） -1 = 1000 0001， 1111 1111， 1111 1111 -1 -2 = 1000 0010， 1111 1110， 1111 1111 -1 -3 = 1000 0011， 1111 1101， 1111 1110 -2 -4 = 1000 0100， 1111 1100， 1111 1110 -2 -5 = 1000 0101， 1111 1011， 1111 1101 -3 -6 = 1000 0110， 1111 1010， 1111 1101 -3 对于 val / 2 !</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/mermaid/</link>
+      <link>https://novohit.top/posts/redis/redis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/mermaid/</guid>
-      <description>Mermaid Chart #   MermaidJS is library for generating svg charts and diagrams from text.
-Override Mermaid Initialization Config
-To override the initialization config for Mermaid, create a mermaid.json file in your assets folder!
- Example #  {{&amp;lt;/* mermaid [class=&amp;#34;text-center&amp;#34;]*/&amp;gt;}} stateDiagram-v2  State1: The state with a note  note right of State1  Important information! You can write  notes.  end note  State1 --&amp;gt; State2  note left of State2 : This is the note to the left.</description>
+      <guid>https://novohit.top/posts/redis/redis/</guid>
+      <description>Redis 基础 #  概念 #  数据类型 #  通用命令 #  Jedis #  Redis 高级 #  持久化 #  持久化简介 #  RDB #  （Redis DataBase）
+save指令 #    命令
+save   手动指定一次保存操作
+  ​	save指令相关配置
+   dbfilename dump.rdb
+说明：设置本地数据库文件名，默认值为 dump.rdb经验：通常设置为dump-端口号.rdb
+  dir
+说明：设置存储.rdb文件的路径
+经验：pwd命令显示当前目录绝对路径（填写这个路径），通常设置成存储空间较大的目录中，目录名称data
+  dbcompression yes
+说明：设置存储至本地数据库时是否压缩数据，默认为 yes，采用 LZF 压缩
+经验：通常默认为开启状态，如果设置为no，可以节省 CPU 运行时间，但会使存储的文件变大（巨大）
+  rdbchecksum yes</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://novohit.top/docs/shortcodes/section/first-page/</link>
+      <link>https://novohit.top/posts/redis/%E5%85%B3%E4%BA%8Eredis%E4%BA%8B%E5%8A%A1%E6%98%AF%E5%90%A6%E6%BB%A1%E8%B6%B3%E5%8E%9F%E5%AD%90%E6%80%A7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/section/first-page/</guid>
-      <description>First page #  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+      <guid>https://novohit.top/posts/redis/%E5%85%B3%E4%BA%8Eredis%E4%BA%8B%E5%8A%A1%E6%98%AF%E5%90%A6%E6%BB%A1%E8%B6%B3%E5%8E%9F%E5%AD%90%E6%80%A7/</guid>
+      <description>个人理解这个问题需要分两种情况讨论
+ multi开启事务后命令队列语法有错误或取消事务discard multi开启事务后命令队列运行错误  第一种情况 #   可以看到开启事务后输入一个错误语法命令get name zhangsan后立即显示错误提示了，再执行exec自然也是不行的，所有命令都不会执行。
+discard的情况就不用说了，取消事务。
+这种情况下是满足事务的原子性的，要不所有命令执行成功，要不一个命令都不执行。
+第二种情况 #  开启事务后命令语法正确，但是在命令执行期间出错，如输入参数的数据类型不符合命令的参数要求。
+ set name后用了list的指令，可以看到命令执行后，能够正确运行的命令会执行，运行错误的命令不会被执行。这种情况下Redis 事务其实不满足原子性的，也就是Redis 不支持事务回滚机制，运行错误需要手动回滚(应该避免)。
+为什么Redis不支持回滚 #  官方文档说明：
+ </description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://novohit.top/docs/shortcodes/section/second-page/</link>
+      <title>KMP</title>
+      <link>https://novohit.top/posts/algorithm/kmp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/section/second-page/</guid>
-      <description>Second Page #  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+      <guid>https://novohit.top/posts/algorithm/kmp/</guid>
+      <description>基本概念： #    非平凡前缀：包含首位字符但不包含末位字符的子串组合。
+  非平凡后缀：包含末位字符但不包含首位字符的子串组合。
+  next数组定义(又称部分匹配表)：模式串T j指针的变化(即当主串与模式串的某一位字符不匹配时，模式串要回退的位置)
+  next[j]的值：当前字符j之前(j-1位)的串的前后缀的相似度(重合字符数+1)
+  模式串求next数组 #  此教程面向的对象：
+ 了解KMP算法原理，可以手写next数组 看过求next数组的代码，进行过相关思考  next[j]数组函数定义：
+ 看懂求next数组代码最重要的是理解下面两句话：
+ next[j+1]的最大值为next[j]+1 如果$P_{k1}\neq P_{j}$ ,那么next[j+1]可能的最大值为next[next[j]]+1,以此类推即可高效求出next[j+1]。(重点)  ​	第一句话的意思是，我们已知next[j]的情况下，继续与下一位字符匹配，最理想的情况就是下一位字符匹配依然相等$P_{k1}$= $P_{j}$，next[j+1]=next[j]+1,相似度+1
+​	第二句话的意思是，我们已知**next[j]的情况下，继续与下一位字符匹配,匹配不相等（next[j]只是当前字符j之前的串的前后缀的相似度,然而决定回溯跨度**的是整个S串的前后缀的相似度），进行回溯，继续下一次匹配
+流程： ①求next[j+1],则已知next[1]、next[2]$\cdots$next[j]
+②假设next[j]=$k_1$,则有$P_1\cdots P_{k-1}$ = $P_{j-k+1}\cdots P_{j-1}$(前k1-1位字符与后k1-1位字符重合)
+③如果$P_{k1}$= $P_{j}$,则$P_1\cdots P_{k-1}P_{k1}$ = $P_{j-k+1}\cdots P_{j-1}P_{j}$,则next[j+1]=k1+1,否则进入下一步
+④假设next[k1]=k2,则有$P_1\cdots P_{k2-1}$ = $P_{k1-k2+1}\cdots P_{k1-1}$
+⑤第二第三步联合得到：$P_1\cdots P_{k2-1}$ = $P_{k1-k2+1}\cdots P_{k1-1}$ = $P_{j-k1+1}\cdots P_{k2-k1+j-1}$ = $P_{j-k2+1}\cdots P_{j-1}$ 即四段 重合</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://novohit.top/docs/shortcodes/tabs/</link>
+      <title>关于 @ResponseBody 的那些事</title>
+      <link>https://novohit.top/posts/spring/%E5%85%B3%E4%BA%8E-responsebody-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://novohit.top/docs/shortcodes/tabs/</guid>
-      <description>Tabs #  Tabs let you organize content by context, for example installation instructions for each supported platform.
-{{&amp;lt; tabs &amp;#34;uniqueid&amp;#34; &amp;gt;}} {{&amp;lt; tab &amp;#34;MacOS&amp;#34; &amp;gt;}} # MacOS Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Linux&amp;#34; &amp;gt;}} # Linux Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Windows&amp;#34; &amp;gt;}} # Windows Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; /tabs &amp;gt;}} Example #  MacOS MacOS #  This is tab MacOS content.
-Lorem markdownum insigne. Olympo signis Delphis!</description>
+      <guid>https://novohit.top/posts/spring/%E5%85%B3%E4%BA%8E-responsebody-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</guid>
+      <description>问题 #  用SpringBoot框架搭建的项目上写了一个新增用户的接口，接口地址是/v1/user/test，代码如下所示（demo版，非生产代码）。
+@Controller public class TestRespController { 	//新增用户的接口  @RequestMapping(&amp;#34;/v1/user/test&amp;#34;)  public User addUser(String userName, String password) {  User user = new User();  user.setUserName(userName);  user.setPassword(password);  return user;  } } 接口写好之后，启动项目开始调试代码，在chrome浏览器上输入了http://localhost:8080/v1/user/test这个地址，然后点击回车，没想到的是页面上提示了一个404的错误。
+ 接口地址没有错，为什么找不到接口呢？奇了怪了。我火急火燎的跑到控制台，看看有没有错误日志。让我很失望啥错误都没有输出，过滤器也准确的把我的输入的请求地址打印出来了。
+ 苦苦寻找 #  为啥页面报了404的错误，而控制台没有任何错误输出呢？实在是有点诡异。问同事嘛，又不好意思，自己好歹是个高级开发工程师，404的问题都搞不定实在是说不过去。三十六计走为上，看看其他的正常的接口是怎么写的。然后，我找到了这样一个接口，这个接口是可以正常访问的，
+@ResponseBody @RequestMapping(&amp;#34;/v1/user/test/update&amp;#34;) public User updateUser(User user) {  boolean result = testNgService.updateUser(user);  return result ? user : null; } 原因是没有在接口上添加@ResponseBody 注解，我印象中这个注解可以将返回的对象序列化成json字符串，并放在响应体中，但是跟接口地址又有什么关系呢？。抱着试试看的态度，我在接口上加上了 @ResponseBody注解，代码就不列举了，太简单了不好意思列举。再次访问http://localhost:8080/v1/user/test 这个地址，接口可以正常返回数据了。
+当然，如果该类下所有的接口都是返回application/json格式数据的接口，则可以直接将类上的**@Controller注解替换成 @RestController 注解。@RestController注解是一个组合注解是由@Controller注解和ResponseBody注解组成**。</description>
+    </item>
+    
+    <item>
+      <title>关于使用 SpringDataRedis 配置序列化方式时报错</title>
+      <link>https://novohit.top/posts/spring/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8springdataredis%E9%85%8D%E7%BD%AE%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%97%B6%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://novohit.top/posts/spring/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8springdataredis%E9%85%8D%E7%BD%AE%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%97%B6%E6%8A%A5%E9%94%99/</guid>
+      <description>SpringBoot下RedisConfig配置
+/** * @author novo * @date 2022/1/2-22:13 */ @Configuration public class RedisConfig {  @Bean  public RedisTemplate&amp;lt;String,Object&amp;gt; redisTemplate(LettuceConnectionFactory lettuceConnectionFactory){  RedisTemplate&amp;lt;String, Object&amp;gt; redisTemplate = new RedisTemplate&amp;lt;&amp;gt;();  //为string类型的key设置序列化  redisTemplate.setKeySerializer(new StringRedisSerializer());  //为string类型的value设置序列化  redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());  //redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer(Object.class));  //为hash设置序列化  redisTemplate.setHashKeySerializer(new StringRedisSerializer());  redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());  // 设置 RedisConnection 工厂。 它就是实现多种 Java Redis 客户端接入的工厂  redisTemplate.setConnectionFactory(lettuceConnectionFactory);  return redisTemplate;  } } 报错信息
+org.springframework.data.redis.serializer.SerializationException: Could not read JSON: Cannot construct instance of `com.</description>
     </item>
     
   </channel>
