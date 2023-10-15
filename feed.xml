@@ -5,8 +5,8 @@
     <description>embrace open source</description>
     <link>https://localhost:4000/</link>
     <atom:link href="https://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 15 Oct 2023 10:07:07 +0000</pubDate>
-    <lastBuildDate>Sun, 15 Oct 2023 10:07:07 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Oct 2023 10:11:05 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Oct 2023 10:11:05 +0000</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
     
       <item>
@@ -171,7 +171,7 @@ git config --global --unset https.proxy
 
 &lt;p&gt;第一句话可以为这个脚本设置别名 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy&lt;/code&gt;，这样在任何路径下都可以通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy&lt;/code&gt; 命令使用这个脚本了，之后在任何路径下，都可以随时都可以通过输入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy unset&lt;/code&gt; 来暂时取消代理。&lt;/p&gt;
 
-&lt;p&gt;第二句话就是在每次 shell 启动的时候运行该脚本实现自动设置代理，这样以后不用额外操作就默认设置好代理啦~&lt;/p&gt;
+&lt;p&gt;第二句话就是在每次 shell 启动的时候运行该脚本实现自动设置代理，这样以后不用额外操作就默认设置好代理了。&lt;/p&gt;
 
 &lt;h2 id=&quot;验证代理&quot;&gt;验证代理&lt;/h2&gt;
 
