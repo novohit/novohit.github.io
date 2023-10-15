@@ -5,9 +5,200 @@
     <description>embrace open source</description>
     <link>https://localhost:4000/</link>
     <atom:link href="https://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 15 Oct 2023 05:14:00 +0000</pubDate>
-    <lastBuildDate>Sun, 15 Oct 2023 05:14:00 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Oct 2023 09:52:32 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Oct 2023 09:52:32 +0000</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>WSL2 使用宿主机的代理</title>
+        <description>&lt;p&gt;由于 WSL1 中 Linux 子系统和宿主机是共享网络的，所以使用宿主机的代理只需要将代理设置成  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://127.0.0.1:port&lt;/code&gt; 即可。但是 WSL2 基于 Hyper-V 运行，导致 Linux 子系统和 Windows 在网络上是两台各自独立的机器，从 Linux 子系统访问 Windows 首先需要找到 Windows 的 IP。而且每次启动 WSL IP 都会变动，并且在学校中宿主机 IP 也会变，所以每次重新启动后都要重新设置一下很麻烦，可以通过脚本来开启 / 关闭代理。&lt;/p&gt;
+
+&lt;h2 id=&quot;wsl-中获取宿主机-ip&quot;&gt;WSL 中获取宿主机 IP&lt;/h2&gt;
+
+&lt;p&gt;WSL2 会把 IP 写在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/resolv.conf&lt;/code&gt; 中，因此可以用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'&lt;/code&gt; 这条指令获得宿主机 IP 。&lt;/p&gt;
+
+&lt;p&gt;WSL2 自己的 IP 可以用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hostname -I | awk '{print $1}'&lt;/code&gt; 得到。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015171655503.png&quot; alt=&quot;image-20231015171655503&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;代理软件打开-allow-lan&quot;&gt;代理软件打开 Allow LAN&lt;/h2&gt;
+
+&lt;p&gt;代理软件中设置允许来自局域网的连接。以 Clash 为例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015171828263.png&quot; alt=&quot;image-20231015171828263&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;防火墙设置&quot;&gt;防火墙设置&lt;/h2&gt;
+
+&lt;p&gt;放行代理的请求，或者直接关闭防火墙。&lt;/p&gt;
+
+&lt;h2 id=&quot;手动设置代理&quot;&gt;手动设置代理&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;http_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://&amp;lt;Windows IP&amp;gt;:&amp;lt;Port&amp;gt;'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;https_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://&amp;lt;Windows IP&amp;gt;:&amp;lt;Port&amp;gt;'&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 设置 git 代理&lt;/span&gt;
+git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; http.proxy &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;http_proxy&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; https.proxy &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;http_proxy&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;脚本设置代理&quot;&gt;脚本设置代理&lt;/h2&gt;
+
+&lt;p&gt;脚本&lt;strong&gt;第 4 行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;PORT&amp;gt;&lt;/code&gt; 记得换成自己宿主机代理的端口&lt;/strong&gt;，clash 默认代理端口是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;7890&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;hostip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /etc/resolv.conf | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;nameserver | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{ print $2 }'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;wslip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{print $1}'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;PORT&amp;gt;
+
+&lt;span class=&quot;nv&quot;&gt;PROXY_HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;hostip&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+set_proxy&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;http_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PROXY_HTTP&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HTTP_PROXY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PROXY_HTTP&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;https_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PROXY_HTTP&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HTTPS_proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PROXY_HTTP&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+unset_proxy&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;http_proxy
+    &lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;HTTP_PROXY
+    &lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;https_proxy
+    &lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;HTTPS_PROXY
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+proxy_info&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Host ip:&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;hostip&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;WSL ip:&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;wslip&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Current proxy:&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$https_proxy&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;set&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;set_proxy
+
+&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;unset&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;unset_proxy
+
+&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;info&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;proxy_info
+&lt;span class=&quot;k&quot;&gt;else
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Unsupported arguments.&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果希望 git 也能通过代理，可以分别在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set_proxy&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unset_proxy&lt;/code&gt; 函数中加上如下命令&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;# 添加代理
+git config --global http.proxy &quot;${PROXY_HTTP}&quot;
+git config --global https.proxy &quot;${PROXY_HTTP}&quot;
+
+# 移除代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;之后运行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;. ./proxy.sh set&lt;/code&gt; 就可以自动设置代理了。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unset&lt;/code&gt; 可以取消代理，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;info&lt;/code&gt; 可以查看代理状态，能够用来检查环境变量是否被正确修改。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;运行的时候不要忘记之前的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt;，或者使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source ./proxy.sh set&lt;/code&gt;，只有这样才能够修改环境变量&lt;/p&gt;
+
+  &lt;p&gt;直接运行例如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./proxy.sh set&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sh proxy.sh set&lt;/code&gt;，这样会是运行在一个子 shell 中，对当前 shell 没有效果&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;另外可以在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt; 中选择性的加上下面两句话，记得&lt;strong&gt;将里面的路径修改成你放这个脚本的路径&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;proxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;source /path/to/proxy.sh&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; /path/to/proxy.sh &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;第一句话可以为这个脚本设置别名 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy&lt;/code&gt;，这样在任何路径下都可以通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy&lt;/code&gt; 命令使用这个脚本了，之后在任何路径下，都可以随时都可以通过输入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxy unset&lt;/code&gt; 来暂时取消代理。&lt;/p&gt;
+
+&lt;p&gt;第二句话就是在每次 shell 启动的时候运行该脚本实现自动设置代理，这样以后不用额外操作就默认设置好代理啦~&lt;/p&gt;
+
+&lt;h2 id=&quot;验证代理&quot;&gt;验证代理&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curl&lt;/code&gt; 一下 google，如果代理成功，则有网页返回，并且可以在代理软件中查看到日志。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这里不能用 ping 命令测试，因为 ping 用的是 ICMP 协议，而一般的代理只接管 TCP、UDP 以上的流量。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;curl google.com
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015173353122.png&quot; alt=&quot;image-20231015173353122&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015173435001.png&quot; alt=&quot;image-20231015173435001&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+        <link>https://localhost:4000/2023/09/15/wsl2-proxy/</link>
+        <guid isPermaLink="true">https://localhost:4000/2023/09/15/wsl2-proxy/</guid>
+        
+        <category>网络</category>
+        
+        <category>代理</category>
+        
+        
+      </item>
     
   </channel>
 </rss>
