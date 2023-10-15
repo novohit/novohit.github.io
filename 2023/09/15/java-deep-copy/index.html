@@ -12,10 +12,17 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="WSL2 使用宿主机的代理 - Novo | Novohit">
+        content="如何理解引用拷贝、深拷贝和浅拷贝 - Novo | Novohit">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="由于 WSL1 中 Linux 子系统和宿主机是共享网络的，所以使用宿主机的代理只需要将代理设置成  http://127.0.0.1:port 即可。但是 WSL2 基于 Hyper-V 运行，导致 Linux 子系统和 Windows 在网络上是两台各自独立的机器，从 Linux 子系统访问 Windows 首先需要找到 Windows 的 IP。而且每次启动 WSL IP 都会变动，并...">
+    <meta property="og:description" content="
+  引用拷贝：引用拷贝，就是拷贝引用地址。两个不同的引用指向同一个对象。
+  浅拷贝：浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点）
+    
+      如果属性是基本类型(int,double,long,boolean等)，拷贝的就是基本类型的值
+      如果属性是引用类型，拷贝的就是内存地址（即复制引用但不复制引用的对象）
+        
+          注：Str...">
     
     <meta property="article:published_time" content=" 2023-09-15T00:00:00Z">
     
@@ -23,16 +30,14 @@
     <meta property="article:author" content="Novo">
     
     
-    <meta property="article:tag" content="网络">
-    
-    <meta property="article:tag" content="代理">
+    <meta property="article:tag" content="Java">
     
     
     <meta property="og:image" content="https://localhost:4000https://github.com/novohit.png">
-    <meta property="og:url" content="https://localhost:4000/2023/09/15/wsl2-proxy/">
+    <meta property="og:url" content="https://localhost:4000/2023/09/15/java-deep-copy/">
     <meta property="og:site_name" content="Novo | Novohit">
 
-    <title>WSL2 使用宿主机的代理 - Novo | Novohit</title>
+    <title>如何理解引用拷贝、深拷贝和浅拷贝 - Novo | Novohit</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -41,7 +46,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://localhost:4000/2023/09/15/wsl2-proxy/">
+    <link rel="canonical" href="https://localhost:4000/2023/09/15/java-deep-copy/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href=" /css/bootstrap.min.css">
@@ -238,12 +243,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/archive/?tag=%E7%BD%91%E7%BB%9C" title="网络">网络</a>
-                        
-                        <a class="tag" href="/archive/?tag=%E4%BB%A3%E7%90%86" title="代理">代理</a>
+                        <a class="tag" href="/archive/?tag=Java" title="Java">Java</a>
                         
                     </div>
-                    <h1>WSL2 使用宿主机的代理</h1>
+                    <h1>如何理解引用拷贝、深拷贝和浅拷贝</h1>
                     
                     <h2 class="subheading"></h2>
                     <span class="meta">Posted by Novo on September 15, 2023</span>
@@ -273,45 +276,40 @@
                 <!-- Multi-Lingual -->
                 
 
-				<p>由于 WSL1 中 Linux 子系统和宿主机是共享网络的，所以使用宿主机的代理只需要将代理设置成  <code class="language-plaintext highlighter-rouge">http://127.0.0.1:port</code> 即可。但是 WSL2 基于 Hyper-V 运行，导致 Linux 子系统和 Windows 在网络上是两台各自独立的机器，从 Linux 子系统访问 Windows 首先需要找到 Windows 的 IP。而且每次启动 WSL IP 都会变动，并且在学校中宿主机 IP 也会变，所以每次重新启动后都要重新设置一下很麻烦，可以通过脚本来开启 / 关闭代理。</p>
+				<ul>
+  <li>引用拷贝：引用拷贝，就是拷贝引用地址。两个不同的引用指向同一个对象。</li>
+  <li>浅拷贝：浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点）
+    <ul>
+      <li>如果属性是基本类型(int,double,long,boolean等)，拷贝的就是基本类型的值</li>
+      <li>如果属性是引用类型，拷贝的就是内存地址（即复制引用但不复制引用的对象）
+        <blockquote>
+          <p>注：String类型通过常量赋值时相当于基本数据类型，由于<strong>String为不可变对象</strong>，是无法修改原String的状态的，其会生成一个新的String对象</p>
 
-<h2 id="wsl-中获取宿主机-ip">WSL 中获取宿主机 IP</h2>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>深拷贝 ：深拷贝会完全复制整个对象，包括这个对象所包含的内部对象。</li>
+</ul>
 
-<p>WSL2 会把 IP 写在 <code class="language-plaintext highlighter-rouge">/etc/resolv.conf</code> 中，因此可以用 <code class="language-plaintext highlighter-rouge">cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'</code> 这条指令获得宿主机 IP 。</p>
+<p>图示：</p>
 
-<p>WSL2 自己的 IP 可以用 <code class="language-plaintext highlighter-rouge">hostname -I | awk '{print $1}'</code> 得到。</p>
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20211231192614327.png" alt="" /></p>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015171655503.png" alt="image-20231015171655503" /></p>
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20211231192742183.png" alt="" /></p>
 
-<h2 id="代理软件打开-allow-lan">代理软件打开 Allow LAN</h2>
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/image-20211231192914746.png" alt="" /></p>
 
-<p>代理软件中设置允许来自局域网的连接。以 Clash 为例：</p>
+<p>案例：</p>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015171828263.png" alt="image-20231015171828263" /></p>
+<p><strong>实现浅拷贝</strong></p>
 
-<h2 id="防火墙设置">防火墙设置</h2>
+<ol>
+  <li>在需要拷贝的类上实现 <code class="language-plaintext highlighter-rouge">Cloneable</code> 接口，并重写 <code class="language-plaintext highlighter-rouge">clone()</code> 方法。实现很简单，直接调用的是父类 <code class="language-plaintext highlighter-rouge">Object</code> 的 <code class="language-plaintext highlighter-rouge">clone()</code> 方法。</li>
+  <li>使用的时候调用实现类的<code class="language-plaintext highlighter-rouge">clone</code>方法</li>
+</ol>
 
-<p>放行代理的请求，或者直接关闭防火墙。</p>
-
-<h2 id="手动设置代理">手动设置代理</h2>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="nb">export </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s1">'http://&lt;Windows IP&gt;:&lt;Port&gt;'</span>
-<span class="nb">export </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s1">'http://&lt;Windows IP&gt;:&lt;Port&gt;'</span>
-<span class="c"># 设置 git 代理</span>
-git config <span class="nt">--global</span> http.proxy <span class="s2">"</span><span class="k">${</span><span class="nv">http_proxy</span><span class="k">}</span><span class="s2">"</span>
-git config <span class="nt">--global</span> https.proxy <span class="s2">"</span><span class="k">${</span><span class="nv">http_proxy</span><span class="k">}</span><span class="s2">"</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="脚本设置代理">脚本设置代理</h2>
-
-<p>脚本<strong>第 4 行 <code class="language-plaintext highlighter-rouge">&lt;PORT&gt;</code> 记得换成自己宿主机代理的端口</strong>，clash 默认代理端口是 <code class="language-plaintext highlighter-rouge">7890</code></p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -337,131 +335,120 @@ git config <span class="nt">--global</span> https.proxy <span class="s2">"</span
 24
 25
 26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/bash</span>
-<span class="nv">hostip</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> /etc/resolv.conf | <span class="nb">grep </span>nameserver | <span class="nb">awk</span> <span class="s1">'{ print $2 }'</span><span class="si">)</span>
-<span class="nv">wslip</span><span class="o">=</span><span class="si">$(</span><span class="nb">hostname</span> <span class="nt">-I</span> | <span class="nb">awk</span> <span class="s1">'{print $1}'</span><span class="si">)</span>
-<span class="nv">port</span><span class="o">=</span>&lt;PORT&gt;
-
-<span class="nv">PROXY_HTTP</span><span class="o">=</span><span class="s2">"http://</span><span class="k">${</span><span class="nv">hostip</span><span class="k">}</span><span class="s2">:</span><span class="k">${</span><span class="nv">port</span><span class="k">}</span><span class="s2">"</span>
-
-set_proxy<span class="o">(){</span>
-    <span class="nb">export </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PROXY_HTTP</span><span class="k">}</span><span class="s2">"</span>
-    <span class="nb">export </span><span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PROXY_HTTP</span><span class="k">}</span><span class="s2">"</span>
-
-    <span class="nb">export </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PROXY_HTTP</span><span class="k">}</span><span class="s2">"</span>
-    <span class="nb">export </span><span class="nv">HTTPS_proxy</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PROXY_HTTP</span><span class="k">}</span><span class="s2">"</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Address</span> <span class="kd">implements</span> <span class="nc">Cloneable</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="c1">// 省略构造函数、Getter&amp;Setter方法</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Address</span> <span class="nf">clone</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="o">(</span><span class="nc">Address</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">CloneNotSupportedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AssertionError</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 
-unset_proxy<span class="o">(){</span>
-    <span class="nb">unset </span>http_proxy
-    <span class="nb">unset </span>HTTP_PROXY
-    <span class="nb">unset </span>https_proxy
-    <span class="nb">unset </span>HTTPS_PROXY
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="nc">Cloneable</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Address</span> <span class="n">address</span><span class="o">;</span>
+    <span class="c1">// 省略构造函数、Getter&amp;Setter方法</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Person</span> <span class="nf">clone</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Person</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+            <span class="k">return</span> <span class="n">person</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">CloneNotSupportedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AssertionError</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 <span class="o">}</span>
-
-proxy_info<span class="o">(){</span>
-    <span class="nb">echo</span> <span class="s2">"Host ip:"</span> <span class="k">${</span><span class="nv">hostip</span><span class="k">}</span>
-    <span class="nb">echo</span> <span class="s2">"WSL ip:"</span> <span class="k">${</span><span class="nv">wslip</span><span class="k">}</span>
-    <span class="nb">echo</span> <span class="s2">"Current proxy:"</span> <span class="nv">$https_proxy</span>
-<span class="o">}</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"set"</span> <span class="o">]</span>
-<span class="k">then
-    </span>set_proxy
-
-<span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"unset"</span> <span class="o">]</span>
-<span class="k">then
-    </span>unset_proxy
-
-<span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"info"</span> <span class="o">]</span>
-<span class="k">then
-    </span>proxy_info
-<span class="k">else
-    </span><span class="nb">echo</span> <span class="s2">"Unsupported arguments."</span>
-<span class="k">fi</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>如果希望 git 也能通过代理，可以分别在 <code class="language-plaintext highlighter-rouge">set_proxy</code> 和 <code class="language-plaintext highlighter-rouge">unset_proxy</code> 函数中加上如下命令</p>
+<p>测试 ：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nc">Person</span> <span class="n">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="k">new</span> <span class="nc">Address</span><span class="o">(</span><span class="s">"武汉"</span><span class="o">));</span>
+<span class="nc">Person</span> <span class="n">person1Copy</span> <span class="o">=</span> <span class="n">person1</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+<span class="c1">// true</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person1</span><span class="o">.</span><span class="na">getAddress</span><span class="o">()</span> <span class="o">==</span> <span class="n">person1Copy</span><span class="o">.</span><span class="na">getAddress</span><span class="o">());</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>从输出结构就可以看出， <code class="language-plaintext highlighter-rouge">person1</code> 的克隆对象和 <code class="language-plaintext highlighter-rouge">person1</code> 使用的仍然是同一个 <code class="language-plaintext highlighter-rouge">Address</code> 对象。</p>
+
+<p>如果改变该类的引用属性，克隆对象的引用属性也会随着改变。</p>
+
+<p><strong>实现深拷贝</strong></p>
+
+<ol>
+  <li>对 <code class="language-plaintext highlighter-rouge">Person</code> 类的 <code class="language-plaintext highlighter-rouge">clone()</code> 方法进行修改，连带着要把 <code class="language-plaintext highlighter-rouge">Person</code> 对象内部的 <code class="language-plaintext highlighter-rouge">Address</code> 对象一起复制。</li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre># 添加代理
-git config --global http.proxy "${PROXY_HTTP}"
-git config --global https.proxy "${PROXY_HTTP}"
-
-# 移除代理
-git config --global --unset http.proxy
-git config --global --unset https.proxy
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">Person</span> <span class="nf">clone</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Person</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getAddress</span><span class="o">().</span><span class="na">clone</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">person</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">CloneNotSupportedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">AssertionError</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>之后运行 <code class="language-plaintext highlighter-rouge">. ./proxy.sh set</code> 就可以自动设置代理了。<code class="language-plaintext highlighter-rouge">unset</code> 可以取消代理，<code class="language-plaintext highlighter-rouge">info</code> 可以查看代理状态，能够用来检查环境变量是否被正确修改。</p>
+<p>测试 ：</p>
 
-<blockquote>
-  <p>运行的时候不要忘记之前的 <code class="language-plaintext highlighter-rouge">.</code>，或者使用 <code class="language-plaintext highlighter-rouge">source ./proxy.sh set</code>，只有这样才能够修改环境变量</p>
-
-  <p>直接运行例如 <code class="language-plaintext highlighter-rouge">./proxy.sh set</code> 或者 <code class="language-plaintext highlighter-rouge">sh proxy.sh set</code>，这样会是运行在一个子 shell 中，对当前 shell 没有效果</p>
-</blockquote>
-
-<p>另外可以在 <code class="language-plaintext highlighter-rouge">~/.bashrc</code> 中选择性的加上下面两句话，记得<strong>将里面的路径修改成你放这个脚本的路径</strong>。</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre><span class="nb">alias </span><span class="nv">proxy</span><span class="o">=</span><span class="s2">"source /path/to/proxy.sh"</span>
-<span class="nb">.</span> /path/to/proxy.sh <span class="nb">set</span>
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nc">Person</span> <span class="n">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="k">new</span> <span class="nc">Address</span><span class="o">(</span><span class="s">"武汉"</span><span class="o">));</span>
+<span class="nc">Person</span> <span class="n">person1Copy</span> <span class="o">=</span> <span class="n">person1</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+<span class="c1">// false</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person1</span><span class="o">.</span><span class="na">getAddress</span><span class="o">()</span> <span class="o">==</span> <span class="n">person1Copy</span><span class="o">.</span><span class="na">getAddress</span><span class="o">());</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>第一句话可以为这个脚本设置别名 <code class="language-plaintext highlighter-rouge">proxy</code>，这样在任何路径下都可以通过 <code class="language-plaintext highlighter-rouge">proxy</code> 命令使用这个脚本了，之后在任何路径下，都可以随时都可以通过输入 <code class="language-plaintext highlighter-rouge">proxy unset</code> 来暂时取消代理。</p>
+<p>从输出结构就可以看出，虽然 <code class="language-plaintext highlighter-rouge">person1</code> 的克隆对象和 <code class="language-plaintext highlighter-rouge">person1</code> 包含的 <code class="language-plaintext highlighter-rouge">Address</code> 对象已经是不同的了。意味着深拷贝创建一个新的对象，是完全独立于原对象的，所以无论怎么修改属性，另一个对象中的属性也不会随着改变。</p>
 
-<p>第二句话就是在每次 shell 启动的时候运行该脚本实现自动设置代理，这样以后不用额外操作就默认设置好代理啦~</p>
+<p><strong>实现引用拷贝</strong></p>
 
-<h2 id="验证代理">验证代理</h2>
-
-<p><code class="language-plaintext highlighter-rouge">curl</code> 一下 google，如果代理成功，则有网页返回，并且可以在代理软件中查看到日志。</p>
-
-<blockquote>
-  <p>这里不能用 ping 命令测试，因为 ping 用的是 ICMP 协议，而一般的代理只接管 TCP、UDP 以上的流量。</p>
-</blockquote>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>curl google.com
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre> <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">();</span>
+ <span class="nc">Person</span> <span class="n">person1</span> <span class="o">=</span> <span class="n">person</span><span class="o">;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015173353122.png" alt="image-20231015173353122" /></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/10/15image-20231015173435001.png" alt="image-20231015173435001" /></p>
+<p>无论是改变person还是person1的任何属性，都会跟着改变。</p>
 
 
                 <hr style="visibility: hidden;">
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2023/09/15/java-deep-copy/" data-toggle="tooltip" data-placement="top" title="如何理解引用拷贝、深拷贝和浅拷贝">
+                        <a href="/2021/12/24/java-serialize-deserialize/" data-toggle="tooltip" data-placement="top" title="Java对象序列化与反序列化">
                         Previous<br>
-                        <span>如何理解引用拷贝、深拷贝和浅拷贝</span>
+                        <span>Java对象序列化与反序列化</span>
                         </a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/2023/09/15/wsl2-proxy/" data-toggle="tooltip" data-placement="top" title="WSL2 使用宿主机的代理">
+                        Next<br>
+                        <span>WSL2 使用宿主机的代理</span>
+                        </a>
+                    </li>
                     
                 </ul>
                 <hr style="visibility: hidden;">

@@ -263,6 +263,89 @@
 </div>
 <hr>
 
+<div class="post-preview">
+    <a href="/2023/09/15/java-deep-copy/">
+        <h2 class="post-title">
+            如何理解引用拷贝、深拷贝和浅拷贝
+        </h2>
+        
+        <div class="post-content-preview">
+            
+                
+  引用拷贝：引用拷贝，就是拷贝引用地址。两个不同的引用指向同一个对象。
+  浅拷贝：浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点）
+    
+      如果属性是基本类型(int,double,long,boolean等)，拷贝的就是基本类型的值
+      如果属性是引用类型，拷贝的就是内存地址（即复制引用但不复制引用的对象）
+        
+          注：Str...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Novo on September 15, 2023
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2021/12/24/java-serialize-deserialize/">
+        <h2 class="post-title">
+            Java对象序列化与反序列化
+        </h2>
+        
+        <div class="post-content-preview">
+            
+                概述
+
+Java 提供了一种对象序列化的机制。用一个字节序列可以表示一个对象，该字节序列包含该对象的数据、对象的类型和对象中存储的属性等信息。字节序列写出到文件之后，相当于文件中持久保存了一个对象的信息。
+
+反之，该字节序列还可以从文件中读取回来，重构对象，对它进行反序列化。对象的数据、对象的类型和对象中存储的数据信息，都可以用来在内存中创建对象。
+
+简单来说：
+
+
+  序列化： 将数据结构...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Novo on December 24, 2021
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2021/12/04/kmp/">
+        <h2 class="post-title">
+            如何理解 KMP
+        </h2>
+        
+        <div class="post-content-preview">
+            
+                基本概念：
+
+
+  非平凡前缀：包含首位字符但不包含末位字符的子串组合。
+  非平凡后缀：包含末位字符但不包含首位字符的子串组合。
+  next数组定义(又称部分匹配表)：模式串T j指针的变化(即当主串与模式串的某一位字符不匹配时，模式串要回退的位置)
+  next[j]的值：当前字符j之前(j-1位)的串的前后缀的相似度(重合字符数+1)
+
+
+
+
+模式串求next数组
+
+此教程面向的对象...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Novo on December 4, 2021
+    </p>
+</div>
+<hr>
+
 
 <!-- Pager -->
 
@@ -284,6 +367,11 @@
         
         
         
+        
+                <a data-sort="0002" 
+                    href="/archive/?tag=Java"
+                    title="Java"
+                    rel="2">Java</a>
     </div>
 </section>
 
