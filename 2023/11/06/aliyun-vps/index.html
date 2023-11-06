@@ -12,27 +12,29 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="如何理解 KMP - Novo | Novohit">
+        content="阿里云搭建代理服务器 - Novo | Novohit">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="基本概念：
+    <meta property="og:description" content="本文仅做技术分享，请勿使用服务器做违法行为。
 
 ">
     
-    <meta property="article:published_time" content=" 2021-12-04T00:00:00Z">
+    <meta property="article:published_time" content=" 2023-11-06T00:00:00Z">
     
     
     <meta property="article:author" content="Novo">
     
     
-    <meta property="article:tag" content="算法">
+    <meta property="article:tag" content="网络">
+    
+    <meta property="article:tag" content="代理">
     
     
     <meta property="og:image" content="https://localhost:4000https://github.com/novohit.png">
-    <meta property="og:url" content="https://localhost:4000/2021/12/04/kmp/">
+    <meta property="og:url" content="https://localhost:4000/2023/11/06/aliyun-vps/">
     <meta property="og:site_name" content="Novo | Novohit">
 
-    <title>如何理解 KMP - Novo | Novohit</title>
+    <title>阿里云搭建代理服务器 - Novo | Novohit</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -41,7 +43,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://localhost:4000/2021/12/04/kmp/">
+    <link rel="canonical" href="https://localhost:4000/2023/11/06/aliyun-vps/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href=" /css/bootstrap.min.css">
@@ -238,13 +240,15 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/archive/?tag=%E7%AE%97%E6%B3%95" title="算法">算法</a>
+                        <a class="tag" href="/archive/?tag=%E7%BD%91%E7%BB%9C" title="网络">网络</a>
+                        
+                        <a class="tag" href="/archive/?tag=%E4%BB%A3%E7%90%86" title="代理">代理</a>
                         
                     </div>
-                    <h1>如何理解 KMP</h1>
+                    <h1>阿里云搭建代理服务器</h1>
                     
                     <h2 class="subheading"></h2>
-                    <span class="meta">Posted by Novo on December 4, 2021</span>
+                    <span class="meta">Posted by Novo on November 6, 2023</span>
                 </div>
             </div>
         </div>
@@ -271,238 +275,81 @@
                 <!-- Multi-Lingual -->
                 
 
-				<h2 id="基本概念">基本概念：</h2>
+				<p>本文仅做技术分享，请勿使用服务器做违法行为。</p>
 
-<ul>
-  <li>非平凡前缀：包含首位字符但不包含末位字符的子串组合。</li>
-  <li>非平凡后缀：包含末位字符但不包含首位字符的子串组合。</li>
-  <li>next数组定义(又称部分匹配表)：模式串T j指针的变化(即当主串与模式串的某一位字符不匹配时，模式串要回退的位置)</li>
-  <li><code class="language-plaintext highlighter-rouge">next[j]</code>的值：当前字符j之前(j-1位)的串的前后缀的相似度(重合字符数+1)</li>
-</ul>
+<p>阿里云高校计划，每年 300 无门槛优惠券。</p>
 
-<!-- more -->
+<p>https://university.aliyun.com/?spm=5176.28508143.J_4VYgf18xNlTAyFFbOuOQe.50.73b2154aoIrBI2&amp;scm=20140722.M_10076475._.V_1</p>
 
-<h2 id="模式串求next数组">模式串求next数组</h2>
+<h2 id="vps-选择">VPS 选择</h2>
 
-<p>此教程面向的对象：</p>
+<p>非大陆机器即可，阿里云可以选则香港或者新加坡的轻量应用服务器，香港的每天 0 点限额发售，网络相对会比较稳定一点。</p>
 
-<ul>
-  <li>了解KMP算法原理，可以手写next数组</li>
-  <li>看过求next数组的代码，进行过相关思考</li>
-</ul>
+<h2 id="重装系统">重装系统</h2>
 
-<p><code class="language-plaintext highlighter-rouge">next[j]</code>数组函数定义：</p>
+<p>因为阿里云自带的镜像会自带安装有阿里云盾，会监控服务器，所以…要重新安装一个纯净的镜像。</p>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/edb8aafb0eaa4b11b981f1c10d53df13.png" alt="" /></p>
+<p>登录阿里云控制台，创建实例后之前点远程连接</p>
 
-<p>看懂求next数组代码最重要的是理解下面两句话：</p>
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106130853031.png" alt="image-20231106130853031" /></p>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">next[j+1]</code>的最大值为<code class="language-plaintext highlighter-rouge">next[j]+1</code></li>
-  <li>如果$P_{k1}\neq P_{j}$ ,那么next[j+1]可能的最大值为<code class="language-plaintext highlighter-rouge">next[next[j]]+1</code>,以此类推即可高效求出next[j+1]。(重点)</li>
-</ul>
+<p>连接上后，使用一键重装脚本 https://github.com/veip007/dd</p>
 
-<p>​	第一句话的意思是，我们已知<code class="language-plaintext highlighter-rouge">next[j]</code>的情况下，继续与下一位字符匹配，最理想的情况就是下一位字符匹配依然相等$P_{k1}$= $P_{j}$，<code class="language-plaintext highlighter-rouge">next[j+1]=next[j]+1</code>,相似度+1</p>
+<p>这里贴出命令：</p>
 
-<p>​	第二句话的意思是，我们已知<code class="language-plaintext highlighter-rouge">next[j]</code>的情况下，继续与下一位字符匹配,匹配不相等（<code class="language-plaintext highlighter-rouge">next[j]</code>只是当前字符j之前的串的前后缀的相似度,然而决定<strong>回溯跨度</strong>的是整个S串的前后缀的相似度），进行回溯，继续下一次匹配</p>
-
-<p>流程：
-①求<code class="language-plaintext highlighter-rouge">next[j+1]</code>,则已知<code class="language-plaintext highlighter-rouge">next[1]</code>、<code class="language-plaintext highlighter-rouge">next[2]</code>$\cdots$<code class="language-plaintext highlighter-rouge">next[j]</code></p>
-
-<p>②假设<code class="language-plaintext highlighter-rouge">next[j]</code>=$k_1$,则有$P_1\cdots P_{k-1}$ <strong>=</strong> $P_{j-k+1}\cdots P_{j-1}$(前k1-1位字符与后k1-1位字符重合)</p>
-
-<p>③如果$P_{k1}$= $P_{j}$,则$P_1\cdots P_{k-1}P_{k1}$ <strong>=</strong> $P_{j-k+1}\cdots P_{j-1}P_{j}$,则<code class="language-plaintext highlighter-rouge">next[j+1]=k1+1</code>,否则进入下一步</p>
-
-<p>④假设<code class="language-plaintext highlighter-rouge">next[k1]=k2</code>,则有$P_1\cdots P_{k2-1}$ <strong>=</strong> $P_{k1-k2+1}\cdots P_{k1-1}$</p>
-
-<p>⑤第二第三步联合得到：$P_1\cdots P_{k2-1}$ <strong>=</strong> $P_{k1-k2+1}\cdots P_{k1-1}$ <strong>=</strong> $P_{j-k1+1}\cdots P_{k2-k1+j-1}$ <strong>=</strong> $P_{j-k2+1}\cdots P_{j-1}$ 即四段
-重合</p>
-
-<p>⑥这时候，再判断如果$P_{k2}$ = $P_{j}$, 则$P_1\cdots P_{k2-1}P_{k2}$ <strong>=</strong> $P_{j-k2+1}\cdots P_{j-1}P_{j}$ ,则<code class="language-plaintext highlighter-rouge">next[j+1]=k2+1</code>;否则
-再取<code class="language-plaintext highlighter-rouge">next[k2]=k3</code>…以此类推</p>
-
-<p>图解：</p>
-
-<p>假设我们已知next[16] = 8 ,需要求next[17]</p>
-
-<p>next[16] = 8 ,那么就是在j=16的字符前的串的前后缀有 8 -1 =7个字符重复</p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/cc54a2db75c3007e6d4980d33377c37f.png" alt="" /></p>
-
-<p>求next[17] 我们只需要比较$P_{8}$和$P_{16}$，最理想的情况就是$P_{8}$ = $P_{16}$  那么<code class="language-plaintext highlighter-rouge">next[17] = next[16]+1</code></p>
-
-<p>若$P_{8}$ ≠ $P_{16}$ ，k进行回溯，回溯到next[8] （我们假设next[8] = 4）</p>
-
-<p>next[8] = 4 ,那么就是在j=4的字符前的串的前后缀有 4 -1 =3个字符重复</p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/f8b3ea273a1ccc39ff689af23082ad19.png" alt="" /></p>
-
-<p>现在求next[17] 我们只需要比较$P_{4}$和$P_{16}$，第二理想情况就是$P_{4}$ = $P_{16}$  那么<code class="language-plaintext highlighter-rouge">next[17] = next[8]+1 = 5</code></p>
-
-<p>为什么呢</p>
-
-<p>因为蓝色部分相等，且橙色部分相等 ，那我们就可以推出四部分是相等的</p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/2c49a5101c705730850ddcde2a92caff.png" alt="" /></p>
-
-<p>如果第二理想情况都不满足，即$P_{4}$ ≠ $P_{16}$，k继续回溯，k = next[4] （我们假设next[4] = 2）</p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/f6b30c7971260eb6ba7d27ef053b2f8f.png" alt="" /></p>
-
-<p>同理，若$P_{2}$ = $P_{16}$  那么<code class="language-plaintext highlighter-rouge">next[17] = next[4]+1 = 3</code></p>
-
-<p>否则，继续回溯，若回溯到next[1]=0,还不相等，则说明相似度为0，递推结束，双指针往后移一位，进行新一轮子串比较</p>
-
-<p>求next数组代码</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">getNext</span><span class="p">(</span><span class="n">string</span> <span class="n">T</span><span class="p">,</span><span class="kt">int</span><span class="o">*</span> <span class="n">next</span><span class="p">){</span>
-	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">next</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="c1">//T[0]代表模式串T的长度</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]){</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="n">next</span><span class="p">[</span><span class="o">++</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">k</span><span class="p">;</span> <span class="c1">//字符相同继续比较</span>
-        <span class="k">else</span> <span class="n">k</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">k</span><span class="p">];</span> <span class="c1">//若字符不相同 k指针回溯</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>wget -N --no-check-certificate https://down.vpsaff.net/linux/dd/network-reinstall-os.sh &amp;&amp; chmod +x network-reinstall-os.sh &amp;&amp; ./network-reinstall-os.sh
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>举个例子：</p>
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106131837773.png" alt="image-20231106131837773" /></p>
 
-<p>模式串：ababac</p>
+<p>根据自身需求和主机配置，选择系统，这里我选择的是Debian 10系统</p>
 
-<p>先用一个例子来看代码的运行流程</p>
+<p>输入编号回车就开始下载和解压系统相关文件了，然后会断连。</p>
 
-<p>开始i指针指向1，k指针指向0，只有一个指针指向了字符，至少需要两个字符才能比较，
-进入第一个if满足k == 0，next[++i] =++k,</p>
+<p>大约要等10-20分钟，让主机自己进行系统安装，如果主机支持VNC，可以通过VNC，观察系统安装进度。</p>
 
-<p>i,k指针都向前移一位</p>
+<p>如果能通过 <code class="language-plaintext highlighter-rouge">ssh</code> 连接上主机了，说明系统安装成功了，下图是已经成功安装后的界面，可以看到阿里云的云监控是停机状态，后续可以自行修改 <code class="language-plaintext highlighter-rouge">root</code> 密码。</p>
 
-<p><strong>next[2] = 1；即j=2，在j之前只有一个字符，所以前后缀相似度为1</strong></p>
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106132235091.png" alt="image-20231106132235091" /></p>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/daea52b7d2d2519c584aee1948444893.png" alt="0" /></p>
+<h2 id="搭建-x-ui-面板">搭建 x-ui 面板</h2>
 
-<p><strong>i = 2 ，k = 1  T[2]不等于T[1]  k指针回溯到next[k] 即next[1] = 0 ;</strong></p>
+<p>https://github.com/vaxilu/x-ui</p>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/5afcf8e64fa521964c82f86608070264.png" alt="1" /></p>
+<p>这里贴出命令</p>
 
-<p><strong>此时k又等于0了 满足if      i，k指针都向前移一位，比较下一位</strong></p>
-
-<p><strong>next[3] = 1</strong></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/4d1fa22e126a273a3f2a034407657947.png" alt="2" /></p>
-
-<p><strong>i = 3 ， k = 1       T[3] = T[1]   满足if  i ，k 指针继续后移</strong></p>
-
-<p><strong>next[4] = 2</strong></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/b942bfa368cc88cd4406497402c35895.png" alt="3" /></p>
-
-<p><strong>i = 4 ，k = 2       T[4] = T[2]     满足if    i，k指针继续后移</strong></p>
-
-<p><strong>next[5] = 3</strong></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/1a733d71501a16b18957ff33043e5d53.png" alt="4" /></p>
-
-<p><strong>i = 5，k = 3       T[5] = T[3]     满足if    i，k指针继续后移</strong></p>
-
-<p><strong>next[6] = 4</strong><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/bfded545e72ead57cb3edb4acbee3f73.png" alt="5" /></p>
-
-<p><strong>i = 6，k = 4       T[6] ≠ T[4]     k指针开始回溯到next[k] =next[4] = 2</strong></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/0ba03f8390f5b759e38c2ae875d2c862.png" alt="6" /></p>
-
-<p><strong>i 不变，k = 2       T[6] ≠ T[2]     k指针继续回溯到next[k] =next[2] = 1</strong></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/4b908d97851a48fa8ea0f3aa99df34e3.png" alt="请添加图片描述" /></p>
-
-<p><strong>i 不变，k = 1       T[6] ≠ T[1]    这次匹配不成功则说明子串$P_{1}P_{2}P_{3}P_{4}P_{5}P_{6}$前后缀并不重复，于是k指针回溯到next[k] =next[1] = 0，进行i ，k指针后移比较下一个子串</strong></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/a891d990e4daa532aa85689daeeb2acb.png" alt="8" /></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/853fce358511a637ca35b620bade6af1.png" alt="9png" /></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/441e6949df37a64e1df06328c1682381.png" alt="10" /></p>
-
-<p><strong>我们再通过gif动画再来回顾一遍上面的流程：</strong></p>
-
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/d349f21b2297508474dbee581b28e96e.gif" alt="" /></p>
-
-<h2 id="主串和模式串的匹配">主串和模式串的匹配</h2>
-
-<p>这一部分就比较简单</p>
-
-<p>代码</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-</pre></td><td class="rouge-code"><pre><span class="c1">//返回子串T在主串S中第pos字符之后的位置，若不存在则返回0</span>
-<span class="c1">//代码需要根据自己的索引值更改循环的边界</span>
-<span class="kt">int</span> <span class="nf">KMP</span><span class="p">(</span><span class="n">string</span> <span class="n">S</span><span class="p">,</span><span class="n">string</span> <span class="n">T</span><span class="p">,</span><span class="kt">int</span> <span class="n">pos</span><span class="p">){</span>
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">next</span><span class="p">[</span><span class="mi">255</span><span class="p">];</span><span class="o">---------------------------</span><span class="mi">1</span>
-    <span class="n">getNext</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">next</span><span class="p">);</span><span class="o">-------------------------</span><span class="mi">2</span>
-    
-    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]){</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span>
-            <span class="o">++</span><span class="n">i</span><span class="p">;</span>
-            <span class="o">++</span><span class="n">j</span><span class="p">;</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="o">---------------------</span><span class="mi">3</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    
-    <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">return</span> <span class="n">i</span><span class="o">-</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>下面看两个例子</p>
+<p>安装过程会让你设置初始账号和面板访问端口，端口设置一个不常见的即可，记得在阿里云控制台开放一下访问的端口。</p>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/c156510fc204a5831ea35b871bc43f08.png" alt="KMP" /></p>
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106133758455.png" alt="image-20231106133758455" /></p>
 
-<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/typora/64c87b309d18f182e0a089095a5bd34c.png" alt="KMP2" /></p>
+<h2 id="搭建节点">搭建节点</h2>
 
-<p>通过上面两个例子也可以看出KMP算法仅当模式与主串之间存在许多“部分匹配”和模式串前后缀相似度小的情况下才能体现它的优势，否则和朴素模式匹配差异并不明显</p>
+<p>直接看视频从 5分钟开始 https://www.youtube.com/watch?v=SpxTFes1B8U</p>
+
+<p>访问面板 404 page not found 问题，是因为根目录变了</p>
+
+<p>可以用 <code class="language-plaintext highlighter-rouge">x-ui</code> 命令查看根目录</p>
+
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106134547695.png" alt="image-20231106134547695" /></p>
+
+<p><img src="https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106134709842.png" alt="image-20231106134709842" /></p>
 
 
                 <hr style="visibility: hidden;">
                 <ul class="pager">
                     
-                    
-                    <li class="next">
-                        <a href="/2021/12/24/java-serialize-deserialize/" data-toggle="tooltip" data-placement="top" title="Java对象序列化与反序列化">
-                        Next<br>
-                        <span>Java对象序列化与反序列化</span>
+                    <li class="previous">
+                        <a href="/2023/09/15/wsl2-proxy/" data-toggle="tooltip" data-placement="top" title="WSL2 使用宿主机的代理">
+                        Previous<br>
+                        <span>WSL2 使用宿主机的代理</span>
                         </a>
                     </li>
+                    
                     
                 </ul>
                 <hr style="visibility: hidden;">
@@ -593,27 +440,6 @@
 </article>
 
 <!-- add support for mathjax by voleking-->
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    SVG: {
-      scale: 90
-    },
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      displayMath: [ ['$$','$$'] ],
-      processEscapes: true,
-    }
-  });
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG">
-</script>
 
 
 

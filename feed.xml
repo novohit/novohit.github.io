@@ -5,9 +5,86 @@
     <description>embrace open source</description>
     <link>https://localhost:4000/</link>
     <atom:link href="https://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 15 Oct 2023 15:45:24 +0000</pubDate>
-    <lastBuildDate>Sun, 15 Oct 2023 15:45:24 +0000</lastBuildDate>
+    <pubDate>Mon, 06 Nov 2023 06:16:29 +0000</pubDate>
+    <lastBuildDate>Mon, 06 Nov 2023 06:16:29 +0000</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>阿里云搭建代理服务器</title>
+        <description>&lt;p&gt;本文仅做技术分享，请勿使用服务器做违法行为。&lt;/p&gt;
+
+&lt;p&gt;阿里云高校计划，每年 300 无门槛优惠券。&lt;/p&gt;
+
+&lt;p&gt;https://university.aliyun.com/?spm=5176.28508143.J_4VYgf18xNlTAyFFbOuOQe.50.73b2154aoIrBI2&amp;amp;scm=20140722.M_10076475._.V_1&lt;/p&gt;
+
+&lt;h2 id=&quot;vps-选择&quot;&gt;VPS 选择&lt;/h2&gt;
+
+&lt;p&gt;非大陆机器即可，阿里云可以选则香港或者新加坡的轻量应用服务器，香港的每天 0 点限额发售，网络相对会比较稳定一点。&lt;/p&gt;
+
+&lt;h2 id=&quot;重装系统&quot;&gt;重装系统&lt;/h2&gt;
+
+&lt;p&gt;因为阿里云自带的镜像会自带安装有阿里云盾，会监控服务器，所以…要重新安装一个纯净的镜像。&lt;/p&gt;
+
+&lt;p&gt;登录阿里云控制台，创建实例后之前点远程连接&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106130853031.png&quot; alt=&quot;image-20231106130853031&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;连接上后，使用一键重装脚本 https://github.com/veip007/dd&lt;/p&gt;
+
+&lt;p&gt;这里贴出命令：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;wget -N --no-check-certificate https://down.vpsaff.net/linux/dd/network-reinstall-os.sh &amp;amp;&amp;amp; chmod +x network-reinstall-os.sh &amp;amp;&amp;amp; ./network-reinstall-os.sh
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106131837773.png&quot; alt=&quot;image-20231106131837773&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;根据自身需求和主机配置，选择系统，这里我选择的是Debian 10系统&lt;/p&gt;
+
+&lt;p&gt;输入编号回车就开始下载和解压系统相关文件了，然后会断连。&lt;/p&gt;
+
+&lt;p&gt;大约要等10-20分钟，让主机自己进行系统安装，如果主机支持VNC，可以通过VNC，观察系统安装进度。&lt;/p&gt;
+
+&lt;p&gt;如果能通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh&lt;/code&gt; 连接上主机了，说明系统安装成功了，下图是已经成功安装后的界面，可以看到阿里云的云监控是停机状态，后续可以自行修改 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; 密码。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106132235091.png&quot; alt=&quot;image-20231106132235091&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;搭建-x-ui-面板&quot;&gt;搭建 x-ui 面板&lt;/h2&gt;
+
+&lt;p&gt;https://github.com/vaxilu/x-ui&lt;/p&gt;
+
+&lt;p&gt;这里贴出命令&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;bash &amp;lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装过程会让你设置初始账号和面板访问端口，端口设置一个不常见的即可，记得在阿里云控制台开放一下访问的端口。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106133758455.png&quot; alt=&quot;image-20231106133758455&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;搭建节点&quot;&gt;搭建节点&lt;/h2&gt;
+
+&lt;p&gt;直接看视频从 5分钟开始 https://www.youtube.com/watch?v=SpxTFes1B8U&lt;/p&gt;
+
+&lt;p&gt;访问面板 404 page not found 问题，是因为根目录变了&lt;/p&gt;
+
+&lt;p&gt;可以用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x-ui&lt;/code&gt; 命令查看根目录&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106134547695.png&quot; alt=&quot;image-20231106134547695&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://zwx-images-1305338888.cos.ap-guangzhou.myqcloud.com/img/2023/11/06/image-20231106134709842.png&quot; alt=&quot;image-20231106134709842&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+        <link>https://localhost:4000/2023/11/06/aliyun-vps/</link>
+        <guid isPermaLink="true">https://localhost:4000/2023/11/06/aliyun-vps/</guid>
+        
+        <category>网络</category>
+        
+        <category>代理</category>
+        
+        
+      </item>
     
       <item>
         <title>WSL2 使用宿主机的代理</title>
